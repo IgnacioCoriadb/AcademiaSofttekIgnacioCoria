@@ -12,29 +12,17 @@ sap.ui.define([
         return Controller.extend("com.sofftek.aca20241q.controller.Main", {
             onInit: function () {
                 that = this;
-                this.getClubes();
-                debugger;
-
             },
 
-            getClubes:function(){
-                let OdataModel = this.getOwnerComponent().getModel();
-                OdataModel.read("/ClubSet",{
-                    success: function(oResponse){
-                        alert(JSON.stringify(oResponse?.results));
-                    },
-                    error:function(oError){
-                    //    MessageToast.show("Error al leer datos");
-                       alert("Error al leer datos: " + oError.responseText);
-                    }
-                })
-            },
 
             onExit: function () {
 
             },
 
             onBeforeRendering: function () {
+                //el that para poder hacer la consulta de manera global
+                that.oModel = this.getView().getModel("academiaJSONModel");
+                this.getClubes();
                 this._setModel();
             },
 
@@ -46,29 +34,43 @@ sap.ui.define([
                     "Street": "Alemanes del volga",
                     "Number": "444"
                 };
-                //el that para poder hacer la consulta de manera global
-                that.oModel = this.getView().getModel("academiaJSONModel");
+
                 //seteo los valores al modelo, si pongo setProperty lo guardo en / si pongo set model lo guarda directo. 
                 //El set property permite guardar varios como un arreglo de objetos
                 that.oModel.setProperty("/formulario",oHardcordData);
                 //setear el modelo a la vista 
                 that.getView().setModel(that.oModel, "AcademiaModel");
+            },
+            getClubes:function(){
+                let OdataModel = this.getOwnerComponent().getModel();
+                const dataClub =[];
+                OdataModel.read("/ClubSet",{
+                    success: function(oResponse){
+                    //convertir a cadena
+                    let clubDb = JSON.stringify(oResponse?.results);
+                    // Convertir clubDb de nuevo en un objeto JSON
+                    clubDb = JSON.parse(clubDb);
+                    // Ahora clubDb es un array de objetos JSON
+                    clubDb.forEach(function(item) {
+                        dataClub.push(
+                            {
+                              "Name": item.Name,
+                              "Country": item.Country,
+                              "City": item.City,
+                              "FoundationDate": item.FoundationDate,
+                              "League": item.League
+                            })
+                    });
 
-                this._setPersonasToModel();
+                    that.oModel.setProperty("/club",dataClub);
+                    },
+                    error:function(oError){
+                        MessageToast.show("Error al leer datos");
+                    }
+                })
             },
 
-            _setPersonasToModel:function(){
-                var clubes = [
-                    { nombre: "Real Madrid", liga: "La Liga" },
-                    { nombre: "FC Barcelona", liga: "La Liga" },
-                    { nombre: "Bayern Munich", liga: "Bundesliga" },
-                    { nombre: "Manchester City", liga: "Premier League" },
-                    { nombre: "Juventus", liga: "Serie A" },
-                ];
-
-                that.oModel.setProperty("/clubes",clubes);
-                
-            },
+           
 
             onAfterRendering: function () {
 
