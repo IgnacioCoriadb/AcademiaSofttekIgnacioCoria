@@ -1,0 +1,64 @@
+<mvc:View controllerName="com.sofftek.aca20241q.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+    >
+    <Page id="page" title="{i18n>title}">
+    <content>
+
+   	<VBox id="_IDGenVBox1" fitContainer="false">
+				<form:SimpleForm id="SimpleFormDisplay480"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					title="Datos del usuario"
+					labelSpanL="4"
+					labelSpanM="4"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+					<form:content>
+						<c:Title id="_IDGenTitle1" text="Datos del usuario" />
+						<Label id="emailLabel" text="Mail" />
+                        <Text  id="textMail" text="{AcademiaModel>/formulario/Mail}"></Text>
+                        <Label id="zipCodeLabel" text="Código Postal" />
+                        <Text  id="zipCodeText" text="{AcademiaModel>/formulario/ZipCode}"></Text>
+                        <Label id="countryLabel" text="País" />
+                        <Text  id="countryText" text="{AcademiaModel>/formulario/Country}"></Text>
+                        <Label id="StreetLabel" text="Ciudad" />
+                        <Text  id="streetText" text="{AcademiaModel>/formulario/Street}"></Text>
+                         <Label id="numberLabel" text="Número" />
+                        <Text  id="numberText" text="{AcademiaModel>/formulario/Number}"></Text>
+					</form:content>
+					<form:layoutData>
+						<FlexItemData id="_IDGenFlexItemData1" shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
+					</form:layoutData>
+				</form:SimpleForm>
+            </VBox>
+            <Table id="tableId" items="{AcademiaModel>/clubes}">
+                <headerToolbar>
+                    <Toolbar id="toolbarId">
+                        <Button id="buttonToolbarId" text="Mi Botón" press="alert('Botón clickeado')"></Button>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="columnName">
+                        <Text  id="textName" text="Nombre"></Text>
+                    </Column>
+                    <Column id="columnLeague">
+                        <Text  id="textLigaColumn" text="Liga"></Text>
+                    </Column>
+                </columns>
+                <ColumnListItem id="columnListId" >
+                    <cells>
+                        <Text  id="textNameCell" text="{AcademiaModel>nombre}"/>
+                        <Text  id="textLigaCell" text="{AcademiaModel>liga}"/>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+
+    </content>
+    </Page>
+</mvc:View>
