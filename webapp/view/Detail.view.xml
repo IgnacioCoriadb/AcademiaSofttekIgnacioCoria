@@ -5,24 +5,30 @@
     xmlns:form="sap.ui.layout.form"
     xmlns:c="sap.ui.core"
     >
-    <Page id="DetailPage" title="Detalle Del Club">
+    <Page id="DetailPage" title="Jugadores del Club" showNavButton="true" navButtonPress="onBack">
     <content>
          <Table id="table" mode="SingleSelectMaster" items="{ToPlayerSet}" selectionChange="onSelectionItem">
-                <!-- <headerToolbar>
-                    <Toolbar id="toolbarId3">
-                        <Button id="buttonToolbarId4" text="Mi Botón" press="alert('Botón clickeado')"></Button>
-                    </Toolbar>
-                </headerToolbar> -->
+         
                 <columns>
-                 <Column id="columnIdClub">
-                        <Text  id="textIdClub" text="IdClubDetail"></Text>
+                    <Column id="columnIdClub">
+                            <Text  id="textIdName" text="Nombre"></Text>
                     </Column>
-                
+                    <Column id="ColumnLastName">
+                        <Text  id="textIdLastName" text="Apellido"></Text>
+                    </Column>
+                    <Column id="ColumnBirthDate">
+                    <Text  id="textIdBirthDate" text="Fecha de Nacimiento"></Text>
+                    </Column>
+                    <Column id="ColumnNationality">
+                    <Text  id="textNationality" text="Nacionalidad"></Text> 
+                    </Column>
                 </columns>
                 <ColumnListItem id="columnListClub" >
                     <cells>
-                        <Text  id="textIdClub2" text="Name"/>
-                        
+                        <Text  id="textIdNameCell" text="{Name}"/>
+                        <Text  id="textIdLastNameCell" text="{LastName}"/>
+                        <Text  id="textIdBirthDateCell" text="{BirthDate}"/>
+                        <Text  id="textIdNacionalidadCell" text="{Nationality}"/>
                     </cells>
                 </ColumnListItem>
             </Table>

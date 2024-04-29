@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    >
+    <Dialog id="helloDialog">
+        <content>
+            <form:SimpleForm id="SimpleFormDisplay480" editable="false" layout="ResponsiveGridLayout" title="Nuevo equipo" labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+                <form:content>
+                    <Label id="lbl1" text="Nombre del equipo" />
+                    <Input id="input1" value="{EquipoCreate>/Nombre}" valueLiveUpdate="true" />
+                    <Label id="lbl2" text="Puntuación" />
+                    <Input id="input2" value="{EquipoCreate>/Puntuacion}" valueLiveUpdate="true"/>
+                </form:content>
+                <form:layoutData>
+                    <FlexItemData id="_IDGenFlexItemData1" shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
+                </form:layoutData>
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button id="_IDGenButton1" type="Success" text="Crear" press="onCrearEquipoPress" />
+        </beginButton>
+        <endButton>
+            <Button id="_IDGenButton2" type="Neutral" text="Cancelar" press="onCerrarCrearEquipoPress" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

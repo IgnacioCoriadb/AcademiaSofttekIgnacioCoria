@@ -17,8 +17,9 @@ sap.ui.define([
             },
 
             _onPatternMatched:function(oEvent){
-                let sClub = oEvent.getParameter('arguments').idClub;
-
+                let sClub = oEvent.getParameter('arguments').IdClub;
+                // let sPath = `/ClubSet('${sClub}')`;
+                // alert(sPath );
                 let oModel = this.getOwnerComponent().getModel();
                 oModel.metadataLoaded().then(function(){
                     this.getView().bindElement({
@@ -28,7 +29,7 @@ sap.ui.define([
                             dataRequested: function(){
                                 that.getView().setBusy(true)
                             },
-                            dataRecived: function(){
+                            dataReceived: function(){
                                 that.getView().setBusy(false)
     
                             }
@@ -40,7 +41,7 @@ sap.ui.define([
             },
 
             _oBindingChange: function(oEvent){
-               
+             
             },
 
             onExit: function () {

@@ -12,9 +12,17 @@ sap.ui.define([
         return BaseController.extend("com.sofftek.aca20241q.controller.Main", {
             onInit: function () {
                 that = this;
+            
             },
 
 
+            /*************************CRUD CLUB**************************************** */
+
+         
+
+          
+
+            /***************************************************************** */
             onExit: function () {
 
             },
@@ -29,7 +37,6 @@ sap.ui.define([
                let oTable = oEvent.getSource();
                let oSelected = oTable.getSelectedItem();
                let sClub = oSelected.getBindingContext().getProperty("IdClub");
-             
                this.getRouter().navTo('Detail', {IdClub: sClub});
             },
             

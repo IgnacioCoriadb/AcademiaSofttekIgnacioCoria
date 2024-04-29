@@ -5,50 +5,17 @@
     xmlns:form="sap.ui.layout.form"
     xmlns:c="sap.ui.core"
     >
-    <Page id="page" title="{i18n>title}">
-    <content>
 
-   	<VBox id="_IDGenVBox1" fitContainer="false">
-				<form:SimpleForm id="SimpleFormDisplay480"
-					editable="false"
-					layout="ResponsiveGridLayout"
-					title="Datos del usuario"
-					labelSpanL="4"
-					labelSpanM="4"
-					emptySpanL="0"
-					emptySpanM="0"
-					columnsL="2"
-					columnsM="2">
-					<form:content>
-						<c:Title id="_IDGenTitle1" text="Datos del usuario" />
-						<Label id="emailLabel" text="Mail" />
-                        <Text  id="textMail" text="{AcademiaModel>/formulario/Mail}"></Text>
-                        <Label id="zipCodeLabel" text="Código Postal" />
-                        <Text  id="zipCodeText" text="{AcademiaModel>/formulario/ZipCode}"></Text>
-                        <Label id="countryLabel" text="País" />
-                        <Text  id="countryText" text="{AcademiaModel>/formulario/Country}"></Text>
-                        <Label id="StreetLabel" text="Ciudad" />
-                        <Text  id="streetText" text="{AcademiaModel>/formulario/Street}"></Text>
-                         <Label id="numberLabel" text="Número" />
-                        <Text  id="numberText" text="{AcademiaModel>/formulario/Number}"></Text>
-					</form:content>
-					<form:layoutData>
-						<FlexItemData id="_IDGenFlexItemData1" shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
-					</form:layoutData>
-				</form:SimpleForm>
-            </VBox>
-           
-            <!--Una tabla que te permite hacer click en cada elemento de la tabla gracias al mode="SingleSelectMaster"-->
+    <Page id="page" showFooter="true" floatingFooter="true" title="Todos los clubes">
+
+    <content>
+    <!--Una tabla que te permite hacer click en cada elemento de la tabla gracias al mode="SingleSelectMaster"-->
              <Table id="tableClube" mode="SingleSelectMaster" items="{/ClubSet}" selectionChange="onSelectionItem">
-                <!-- <headerToolbar>
-                    <Toolbar id="toolbarId3">
-                        <Button id="buttonToolbarId4" text="Mi Botón" press="alert('Botón clickeado')"></Button>
-                    </Toolbar>
-                </headerToolbar> -->
+        
                 <columns>
-                 <Column id="columnIdClub">
+                 <!-- <Column id="columnIdClub">
                         <Text  id="textIdClub" text="IdClub"></Text>
-                    </Column>
+                    </Column> -->
                     <Column id="columnName4">
                         <Text  id="textNameColumn" text="Nombre"></Text>
                     </Column>
@@ -67,7 +34,7 @@
                 </columns>
                 <ColumnListItem id="columnListClub" >
                     <cells>
-                        <Text  id="textIdClub2" text="{IdClub}"/>
+                        <!-- <Text  id="textIdClub2" text="{IdClub}"/> -->
                         <Text  id="textIdClub3" text="{Name}"/>
                         <Text  id="textName" text="{Name}"/>
                         <Text  id="textCountry" text="{Country}"/>
@@ -77,7 +44,15 @@
                     </cells>
                 </ColumnListItem>
             </Table>
-
     </content>
+
+        <footer>
+            <!-- <OverflowToolbar id="ovftoolbar">
+                <ToolbarSpacer id="ts"/>
+                <Button id="btn1" icon="sap-icon://add" tooltip="Crear nuevo equipo" press="onCreateEquipo"/>
+            </OverflowToolbar> -->
+        </footer>
+
     </Page>
+
 </mvc:View>
