@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
     <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="ZACA_CLUB_IG_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <Schema Namespace="ZACA_CLUB_IG_SRV_01" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
             <EntityType Name="Club" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="IdClub"/>
@@ -12,40 +12,43 @@
                 <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="League" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FoundationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="ToJugadorSet" Relationship="ZACA_CLUB_IG_SRV.Assoc_Club_to_Jugador" FromRole="FromRole_Assoc_Club_to_Jugador" ToRole="ToRole_Assoc_Club_to_Jugador"/>
+                <NavigationProperty Name="ToPlayerSet" Relationship="ZACA_CLUB_IG_SRV_01.Assoc_Club_To_Player" FromRole="FromRole_Assoc_Club_To_Player" ToRole="ToRole_Assoc_Club_To_Player"/>
             </EntityType>
-            <EntityType Name="Jugador" sap:content-version="1">
+            <EntityType Name="Player" sap:content-version="1">
                 <Key>
+                    <PropertyRef Name="IdPlayer"/>
                     <PropertyRef Name="IdClub"/>
-                    <PropertyRef Name="IdJugador"/>
                 </Key>
-                <Property Name="IdClub" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IdJugador" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="ToClub" Relationship="ZACA_CLUB_IG_SRV.Assoc_Club_to_Jugador" FromRole="ToRole_Assoc_Club_to_Jugador" ToRole="FromRole_Assoc_Club_to_Jugador"/>
+                <Property Name="IdPlayer" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Ficticio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdClub" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Ficticio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BirthDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nationality" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToClub" Relationship="ZACA_CLUB_IG_SRV_01.Assoc_Club_To_Player" FromRole="ToRole_Assoc_Club_To_Player" ToRole="FromRole_Assoc_Club_To_Player"/>
             </EntityType>
-            <Association Name="Assoc_Club_to_Jugador" sap:content-version="1">
-                <End Type="ZACA_CLUB_IG_SRV.Club" Multiplicity="1" Role="FromRole_Assoc_Club_to_Jugador"/>
-                <End Type="ZACA_CLUB_IG_SRV.Jugador" Multiplicity="*" Role="ToRole_Assoc_Club_to_Jugador"/>
+            <Association Name="Assoc_Club_To_Player" sap:content-version="1">
+                <End Type="ZACA_CLUB_IG_SRV_01.Club" Multiplicity="1" Role="FromRole_Assoc_Club_To_Player"/>
+                <End Type="ZACA_CLUB_IG_SRV_01.Player" Multiplicity="*" Role="ToRole_Assoc_Club_To_Player"/>
                 <ReferentialConstraint>
-                    <Principal Role="FromRole_Assoc_Club_to_Jugador">
+                    <Principal Role="FromRole_Assoc_Club_To_Player">
                         <PropertyRef Name="IdClub"/>
                     </Principal>
-                    <Dependent Role="ToRole_Assoc_Club_to_Jugador">
+                    <Dependent Role="ToRole_Assoc_Club_To_Player">
                         <PropertyRef Name="IdClub"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
-            <EntityContainer Name="ZACA_CLUB_IG_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="ClubSet" EntityType="ZACA_CLUB_IG_SRV.Club" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="JugadorSet" EntityType="ZACA_CLUB_IG_SRV.Jugador" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <AssociationSet Name="Assoc_Club_to_JugadorSet" Association="ZACA_CLUB_IG_SRV.Assoc_Club_to_Jugador" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ClubSet" Role="FromRole_Assoc_Club_to_Jugador"/>
-                    <End EntitySet="JugadorSet" Role="ToRole_Assoc_Club_to_Jugador"/>
+            <EntityContainer Name="ZACA_CLUB_IG_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ClubSet" EntityType="ZACA_CLUB_IG_SRV_01.Club" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PlayerSet" EntityType="ZACA_CLUB_IG_SRV_01.Player" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="Assoc_Club_To_PlayerSet" Association="ZACA_CLUB_IG_SRV_01.Assoc_Club_To_Player" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ClubSet" Role="FromRole_Assoc_Club_To_Player"/>
+                    <End EntitySet="PlayerSet" Role="ToRole_Assoc_Club_To_Player"/>
                 </AssociationSet>
             </EntityContainer>
-            <atom:link rel="self" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZACA_CLUB_IG_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZACA_CLUB_IG_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="self" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZACA_CLUB_IG_SRV_01/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZACA_CLUB_IG_SRV_01/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

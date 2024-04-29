@@ -1,0 +1,33 @@
+<mvc:View controllerName="com.sofftek.aca20241q.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+    >
+    <Page id="DetailPage" title="Detalle Del Club">
+    <content>
+         <Table id="table" mode="SingleSelectMaster" items="{ToPlayerSet}" selectionChange="onSelectionItem">
+                <!-- <headerToolbar>
+                    <Toolbar id="toolbarId3">
+                        <Button id="buttonToolbarId4" text="Mi Botón" press="alert('Botón clickeado')"></Button>
+                    </Toolbar>
+                </headerToolbar> -->
+                <columns>
+                 <Column id="columnIdClub">
+                        <Text  id="textIdClub" text="IdClubDetail"></Text>
+                    </Column>
+                
+                </columns>
+                <ColumnListItem id="columnListClub" >
+                    <cells>
+                        <Text  id="textIdClub2" text="Name"/>
+                        
+                    </cells>
+                </ColumnListItem>
+            </Table>
+
+
+    </content>
+    </Page>
+</mvc:View>

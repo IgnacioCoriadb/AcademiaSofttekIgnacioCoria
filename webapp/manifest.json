@@ -16,8 +16,8 @@
             "toolsId": "e89ae73e-77fe-470f-927e-148b42082a52"
         },
         "dataSources": {
-            "ZACA_CLUB_IG_SRV": {
-                "uri": "/sap/opu/odata/sap/ZACA_CLUB_IG_SRV",
+            "ZACA_CLUB_IG_SRV_01": {
+                "uri": "/sap/opu/odata/sap/ZACA_CLUB_IG_SRV_01",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -69,13 +69,12 @@
                     "bundleName": "com.sofftek.aca20241q.i18n.i18n"
                 }
             },
-            "academiaJSONModel":{
+            "academiaJSONModel": {
                 "type": "sap.ui.model.json.JSONModel"
-
             },
             "": {
                 "preload": true,
-                "dataSource": "ZACA_CLUB_IG_SRV",
+                "dataSource": "ZACA_CLUB_IG_SRV_01",
                 "settings": {
                     "defaultBindingMode": "TwoWay",
                     "defaultCountMode": "Inline",
@@ -110,7 +109,16 @@
                     "target": [
                         "TargetMain"
                     ]
+                },
+                {
+                    "name": "Detail",
+                    "pattern": "Club/{IdClub}",
+                    "target": [
+                        "TargetDetail"
+                    ]
                 }
+                
+
             ],
             "targets": {
                 "TargetMain": {
@@ -119,7 +127,16 @@
                     "clearControlAggregation": false,
                     "viewId": "Main",
                     "viewName": "Main"
+                },
+         
+                "TargetDetail": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "DetailId",
+                    "viewName": "Detail"
                 }
+                
             }
         },
         "rootView": {

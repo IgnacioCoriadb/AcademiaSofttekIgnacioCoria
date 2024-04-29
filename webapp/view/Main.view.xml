@@ -38,40 +38,7 @@
 				</form:SimpleForm>
             </VBox>
            
-
-             <Table id="tableClube" items="{AcademiaModel>/club}">
-                <headerToolbar>
-                    <Toolbar id="toolbarId3">
-                        <Button id="buttonToolbarId4" text="Mi Botón" press="alert('Botón clickeado')"></Button>
-                    </Toolbar>
-                </headerToolbar>
-                <columns>
-                    <Column id="columnName4">
-                        <Text  id="textNameColumn" text="Nombre"></Text>
-                    </Column>
-                     <Column id="columnCountry">
-                        <Text  id="textCountryColumn" text="País"></Text>
-                    </Column>
-                    <Column id="columnCity">
-                        <Text  id="textCityColumn" text="Ciudad"></Text>
-                    </Column>
-                    <Column id="columnFoundationDate">
-                        <Text  id="textFoundationDateColumn" text="Fecha de Funcación"></Text>
-                    </Column>
-                    <Column id="columnLeague">
-                        <Text  id="textLeagueColumn" text="Liga"></Text>
-                    </Column>
-                </columns>
-                <ColumnListItem id="columnListClub" >
-                    <cells>
-                        <Text  id="textName" text="{AcademiaModel>Name}"/>
-                        <Text  id="textCountry" text="{AcademiaModel>Country}"/>
-                        <Text  id="textCity" text="{AcademiaModel>City}"/>
-                        <Text  id="textFoundationDate" text="{AcademiaModel>FoundationDate}"/>
-                        <Text  id="textLeague" text="{AcademiaModel>League}"/>
-                    </cells>
-                </ColumnListItem>
-            </Table>
+          
 
     </content>
     </Page>
