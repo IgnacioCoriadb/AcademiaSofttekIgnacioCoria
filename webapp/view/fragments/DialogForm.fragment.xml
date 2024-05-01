@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    >
+    <Dialog id="helloDialog">
+        <content>
+            <form:SimpleForm id="SimpleFormDisplay480" editable="false" layout="ResponsiveGridLayout" title="Nuevo equipo" labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+                <form:content>
+                    <Label id="lblName" text="Nombre del Club" />
+                    <Input id="inputName" value="{ClubCreate>/Name}" valueLiveUpdate="true" />
+                    <Label id="lblCity" text="Ciudad" />
+                    <Input id="inputCity" value="{ClubCreate>/City}" valueLiveUpdate="true"/>
+                    <Label id="lblCountry" text="País" />
+                    <Input id="inputCountry" value="{ClubCreate>/Country}" valueLiveUpdate="true" />
+                    <Label id="lblLeague" text="Liga" />
+                    <Input id="inputLeague" value="{ClubCreate>/League}" valueLiveUpdate="true" />
+                    <Label id="lblFoundationDate" text="Fecha de Fundación" />
+                    <DatePicker id="inputFoundationDate" value="{ClubCreate>/FoundationDate}" displayFormat="dd/MM/yyyy" />
+                </form:content>
+                <form:layoutData>
+                    <FlexItemData id="_IDGenFlexItemData1" shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
+                </form:layoutData>
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button id="_IDGenButton1"  type="Emphasized" text="Crear" press="onCreateClub" />
+        </beginButton>
+        <endButton>
+            <Button id="_IDGenButton2" type="Reject" text="Cancelar" press="onCloseClubCreate" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

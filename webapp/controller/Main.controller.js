@@ -17,9 +17,67 @@ sap.ui.define([
 
 
             /*************************CRUD CLUB**************************************** */
+            onOpenDialog: function() {
+                if (!this.fDialog) {
+                    this.loadFragment({
+                        name: "com.sofftek.aca20241q.view.fragments.DialogForm",
+                        Controller: that
+                    }).then(function(oDialog) {
+                        that.getView().addDependent(oDialog);
+                        let oModel = new sap.ui.model.json.JSONModel({
+                            "IdClub":"",
+                            "Name": "",
+                            "City": "",
+                            "Country": "",
+                            "League": "",
+                            "FoundationDate": new Date()
+                        });
+                        oModel.setDefaultBindingMode("TwoWay");
+                        oDialog.setModel(oModel, "ClubCreate");
+                        oDialog.attachAfterClose(that._afterCloseDialog);
+                        this.fDialog = oDialog;
+                        this.fDialog.open();
+                    }.bind(this));
+                } else {
+                    this.fDialog.open();
+                }
+            },
+            
+            onCreateClub:function(oEvent){
+              
+                var oModel = oEvent.getSource().getModel("ClubCreate");
+                var sFoundationDate = oModel.getProperty("/FoundationDate");
+              
 
-         
-
+                // Formatear la fecha en el formato (yyyy-MM-dd'T'00:00:00)
+                var oDate = new Date(sFoundationDate);
+                var sFormattedDate = oDate.toISOString().split('T')[0] + 'T00:00:00';
+            
+                // Actualizar el valor de la fecha en el modelo
+                oModel.setProperty("/FoundationDate", sFormattedDate);
+               
+                
+                // Ahora puedes acceder a los datos modificados en el modelo y enviarlos al backend
+                let oData = oModel.getData();
+                console.log(oData);
+                let oDataModel = that.getView().getModel();
+                oDataModel.create("/ClubSet", oData, {
+                    success: function (oResponse) {
+                        let result = oResponse?.results;
+                        sap.m.MessageBox.success("Club Creado");
+                        that.getOwnerComponent().getModel().refresh(true, true);
+                        that.onCloseClubCreate();
+                    },
+                    error: function (oError) {
+                        // manejar excepción del servicio
+                        sap.m.MessageBox.error("Ocurrió un problema al crear el club");
+                    }
+                });
+        
+            },
+            onCloseClubCreate: function (oEvent) {
+                this.fDialog.then((oDialog) =>oDialog.close());
+            },
           
 
             /***************************************************************** */

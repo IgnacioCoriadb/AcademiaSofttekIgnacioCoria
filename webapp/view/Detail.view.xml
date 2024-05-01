@@ -6,6 +6,7 @@
     xmlns:c="sap.ui.core"
     >
     <Page id="DetailPage" title="Jugadores del Club" showNavButton="true" navButtonPress="onBack">
+    
     <content>
          <Table id="table" mode="SingleSelectMaster" items="{ToPlayerSet}" selectionChange="onSelectionItem">
          

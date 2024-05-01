@@ -7,6 +7,12 @@
     >
 
     <Page id="page" showFooter="true" floatingFooter="true" title="Todos los clubes">
+        <headerContent>
+            <Button text="Crear Club" id="ButtonIdClub" press="onOpenDialog"></Button>
+            <!-- <Button text="Crear Jugador" id="ButtonIdPlayer" press="onOpenDialog"></Button> -->
+
+        </headerContent>
+
 
     <content>
     <!--Una tabla que te permite hacer click en cada elemento de la tabla gracias al mode="SingleSelectMaster"-->
@@ -46,12 +52,7 @@
             </Table>
     </content>
 
-        <footer>
-            <!-- <OverflowToolbar id="ovftoolbar">
-                <ToolbarSpacer id="ts"/>
-                <Button id="btn1" icon="sap-icon://add" tooltip="Crear nuevo equipo" press="onCreateEquipo"/>
-            </OverflowToolbar> -->
-        </footer>
+        
 
     </Page>
 
