@@ -1,1 +1,5 @@
-/* Enter your custom styles here */
+.tableTitle{
+    text-align: center; /* Centra el texto horizontalmente */
+    vertical-align: middle; /* Centra el texto verticalmente */
+    margin:0
+}
