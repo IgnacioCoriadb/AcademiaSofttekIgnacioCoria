@@ -80,6 +80,7 @@
                                 class="size5"
                                 color="#dc3545"
                                 press="deleteClub" 
+                               
                                 >
                                 <core:layoutData>
                                     <FlexItemData id="_IDGenFlexItemData2" growFactor="1" />

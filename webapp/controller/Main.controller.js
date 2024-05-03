@@ -96,8 +96,21 @@ sap.ui.define([
         editClub: function(){
             alert("Funcion editar club")
         },
-        deleteClub: function(){
-            alert("Funcion eliminar club")
+        deleteClub: function(oEvent){
+            //obtengo el id para pegarle al back , me retorna /ClubSet('006')
+            let idClub = oEvent.getSource().getBindingContext().getPath();
+
+            let oDataModel = this.getOwnerComponent().getModel();
+            oDataModel.remove(`${idClub}`,{
+                success : function(oResponse){
+                    sap.m.MessageBox.success("Club eliminado correctamente");
+                    //refrescar el modelo para que se actualice la tabla despues de eliminar
+                    that.getOwnerComponent().getModel().refresh(true,true);
+                },
+                error: function(oError){
+                    sap.m.MessageBox.success("No se pudo eliminar el club");
+                }
+            })
         },
 
         saveClub: function(){
@@ -117,7 +130,7 @@ sap.ui.define([
         /*************************************************************/
 
         /***********************VALIDATE FORM*****************************/
-        
+
 
 
 
