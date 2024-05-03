@@ -4,10 +4,28 @@
 }
 
 .formInputs{
-    padding: 25px 10px 25px 10px;
+    padding: 12px 10px 25px 30px;
 }
 
 .submit{
     margin-top: 100px;
+}
+
+.search{
+    margin-top: 20px;
+}
+
+.searchInput{
+    width: 500px;
+}
+
+
+label{
+    display: inline-block;
+}
+@media only screen and (max-width: 600px) {
+    .searchInput {
+        width: 100%; 
+    }
 }
 

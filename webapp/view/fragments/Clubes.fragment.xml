@@ -1,5 +1,4 @@
 <core:FragmentDefinition id="Clubes"
-	
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
 	xmlns:core="sap.ui.core"
@@ -7,55 +6,23 @@
 	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     controllerName="com.sofftek.aca20241q.controller.Main"
 	xmlns:f="sap.f"
-    >
+	height="100%"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:svm="sap.ui.comp.smartvariants"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
 
 
 	<Page id="_IDHeadderCONBORDE" showHeader="false" class="header" >
-        <f:DynamicPage id="_IDGenDynamicPage1" headerExpanded="true" >
-        <!-- <f:title>
-            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
-                <f:heading>
-                    <svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
-                </f:heading>
-                <f:expandedContent>
-                    <Label id="expandedLabel" text="No filters active" />
-                </f:expandedContent>
-                <f:snappedContent>
-                    <Label id="snappedLabel" text="No filters active" />
-                </f:snappedContent>
-            </f:DynamicPageTitle>
-        </f:title> -->
-        <f:header>
-            <f:DynamicPageHeader id="_IDGenDynamicPageHeader1">
-                <!-- <f:content>
-                    <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
-                        <fb:filterGroupItems>
-                            <fb:FilterGroupItem id="_IDGenFilterGroupItem1" name="Name" label="Name" groupName="Group1" visibleInFilterBar="true">
-                                <fb:control>
-                                    <MultiComboBox id="_IDGenMultiComboBox1" name="Name" selectionChange=".onSelectionChange">
-                                        <core:Item id="_IDGenItem1" key="3" text="name"/>
-                                    </MultiComboBox>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem id="_IDGenFilterGroupItem2" name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
-                                <fb:control>
-                                    <MultiComboBox id="_IDGenMultiComboBox2" name="Category" selectionChange=".onSelectionChange">
-                                        <core:Item id="_IDGenItem2" key="4" text="name"/>
-                                    </MultiComboBox>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem id="_IDGenFilterGroupItem3" name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
-                                <fb:control>
-                                    <MultiComboBox id="_IDGenMultiComboBox3" name="SupplierName" selectionChange=".onSelectionChange">
-                                        <core:Item id="_IDGenItem3" key="5" text="name"/>
-                                    </MultiComboBox>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                        </fb:filterGroupItems>
-                    </fb:FilterBar>
-                </f:content> -->
-            </f:DynamicPageHeader>
-        </f:header>
+        <FlexBox id="_IDGenFlsdsexBox1" justifyContent="Center" width="100%" class="search" >
+            <items>
+                <SearchField id="__xsf" class="searchInput" placeholder="Escribe aquí para buscar..."/>
+            </items>
+        </FlexBox>
+	    <f:DynamicPage id="_IDGenDynamicPage1" headerExpanded="true">     
         <f:content>
             <Table id="tableClube" 
                 inset="false"

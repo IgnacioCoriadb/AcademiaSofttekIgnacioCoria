@@ -18,19 +18,19 @@
 			labelSpanM= "2" 
 			labelSpanS= "2"  
 		>
-			<Label id="_IDGenLabel1" text="Nombre" />
+			<Label id="_IDGenLabel1" text="Nombre"  required="true"/>
 			<Input id="_IDGenInput1" placeholder="Ingrese el nombre" class="formInputs" width="80%"/>
 
-			<Label id="_IDGenLabel2" text="Ciudad"/>
+			<Label id="_IDGenLabel2" text="Ciudad" required="true"/>
 			<Input id="_IDGenInput2" placeholder="Ingrese la ciudad" class="formInputs" width="80%"/>
 
-			<Label id="_IDGenLabel3" text="País" />
+			<Label id="_IDGenLabel3" text="País"  required="true"/>
 			<Input id="_IDGenInput3" type="Number" placeholder="Ingrese el país" class="formInputs" width="80%"/>
 
-			<Label id="_IDGenLabel4" text="Liga" />
+			<Label id="_IDGenLabel4" text="Liga"  required="true"/>
 			<Input id="_IDGenInput4" placeholder="Ingrese la liga" class="formInputs" width="80%"/>
 
-			<Label id="_IDGenLabel5" text="Fecha de Fundación" />
+			<Label id="_IDGenLabel5" text="Fecha de Fundación" required="true" />
 			<DatePicker id="_IDGenDatePicker1" class="formInputs" width="100%"/>
        
 			<Button id="_IDGenButton1" text="Guardar" press="saveClub" width="100%" class="formInputs submit">

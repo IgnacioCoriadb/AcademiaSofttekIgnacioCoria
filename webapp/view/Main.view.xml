@@ -34,26 +34,11 @@
 				backgroundDesign= "Solid"
 				
 				>
-
 			<content>
 				<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreateClub" type="XML"/>
 			</content>
 
 		
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
 			</Page>
 			<Page
 				id="league"
