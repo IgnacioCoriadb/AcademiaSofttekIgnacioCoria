@@ -19,7 +19,7 @@
 	<Page id="_IDHeadderCONBORDE" showHeader="false" class="header" >
         <FlexBox id="_IDGenFlsdsexBox1" justifyContent="Center" width="100%" class="search" >
             <items>
-                <SearchField id="__xsf" class="searchInput" placeholder="Escribe aquí para buscar..."/>
+                <SearchField id="__xsf" class="searchInput" placeholder="Escribe aquí para buscar..." liveChange="onSearchChangeFilter"/>
             </items>
         </FlexBox>
 	    <f:DynamicPage id="_IDGenDynamicPage1" headerExpanded="true">     

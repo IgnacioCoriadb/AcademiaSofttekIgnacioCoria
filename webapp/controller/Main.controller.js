@@ -27,7 +27,7 @@ sap.ui.define([
            
 
             onAfterRendering: function () {
-                
+               
             },
 
           /*******************NAVBAR*********************** */
@@ -102,12 +102,27 @@ sap.ui.define([
 
         saveClub: function(){
             alert("Funcion Crear Club")
-        }
-
-
+        },
 
         /***************FIN CRUD********************* */
 
+        /*************Filtros en all clubes****************************/
+        onSearchChangeFilter:function(oEvent){
+            let dataSearch = oEvent.mParameters.newValue;
+            this.searchInDatabase(dataSearch);
+        },
+        searchInDatabase: function(dataSearch) {
+            console.log(dataSearch)
+        },
+        /*************************************************************/
+
+        /***********************VALIDATE FORM*****************************/
+        
+
+
+
+        /****************************************************************/
+        
         });
 
 
