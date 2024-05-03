@@ -102,7 +102,6 @@
                                 class="size5"
                                 color="#007bff"
                                 press="editClub"
-                            
                                 >
                                 <core:layoutData>
                                     <FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
@@ -114,7 +113,6 @@
                                 class="size5"
                                 color="#dc3545"
                                 press="deleteClub" 
-                            
                                 >
                                 <core:layoutData>
                                     <FlexItemData id="_IDGenFlexItemData2" growFactor="1" />

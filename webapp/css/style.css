@@ -1,5 +1,13 @@
-.noMarginPadding{
-    padding: 0 !important;
-    margin: 0 !important;
-    background-color: red;
+.page{
+    background-color: #ffff;
+    height: 100vh;
 }
+
+.formInputs{
+    padding: 25px 10px 25px 10px;
+}
+
+.submit{
+    margin-top: 100px;
+}
+

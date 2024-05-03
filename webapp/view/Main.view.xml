@@ -5,9 +5,10 @@
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" 
 >
     
-	<Page id="_IDGenPage1" showHeader="false">
+	<Page id="_IDGenPage1" showHeader="false" >
 		<content>
 			<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.Header" type="XML"/>
 		</content>
@@ -33,16 +34,26 @@
 				backgroundDesign= "Solid"
 				
 				>
-				<Label id="_IDGenLabel3" text="This is Detail Page 3" />
-				<Input id="_IDGenInput1"/>
-				<Label id="_IDGenLabel4" text="Label 2" />
-				<Input id="_IDGenInput2"/>
-				<Label id="_IDGenLabel5" text="Label 3" />
-				<Input id="_IDGenInput3"/>
-				<Label id="_IDGenLabel6" text="Label 4" />
-				<Input id="_IDGenInput4"/>
-				<Label id="_IDGenLabel7" text="Label 5" />
-				<Input id="_IDGenInput5"/>
+
+			<content>
+				<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreateClub" type="XML"/>
+			</content>
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</Page>
 			<Page
 				id="league"

@@ -24,24 +24,13 @@ sap.ui.define([
                 that.oModel = this.getView().getModel("academiaJSONModel");
             },
 
-            onSelectionItem: function(oEvent) {
-               let oTable = oEvent.getSource();
-               let oSelected = oTable.getSelectedItem();
-               let sClub = oSelected.getBindingContext().getProperty("IdClub");
-               this.getRouter().navTo('Detail', {IdClub: sClub});
-            },
-            
-            
-
-          
-
            
 
             onAfterRendering: function () {
                 
             },
 
-          /**********NAVBAR*********************** */
+          /*******************NAVBAR*********************** */
           onPressGoToMaster: function(oEvent){
             var oListItem = oEvent.getSource();
             var sListItemId = oListItem.getId();
@@ -58,14 +47,9 @@ sap.ui.define([
                 case "_IdPlayers":
                     this.getSplitContObj().toMaster(this.createId("listPlayers"));
                     break
-
-
-            }
-
-
-           
-           
+            }              
         },
+
         getSplitContObj: function () {
 			var result = this.byId("SplitContDemo");
 			if (!result) {
@@ -81,9 +65,9 @@ sap.ui.define([
 			var sToPageId = oEvent.getParameter("listItem").getCustomData()[0].getValue();
 
 			this.getSplitContObj().toDetail(this.createId(sToPageId));
-			// debugger
+			
 		},
-        /********************************** */
+        /**********************************FIN NAVBAR*****************************************/
 
 
         //formatear fecha
@@ -114,12 +98,15 @@ sap.ui.define([
         },
         deleteClub: function(){
             alert("Funcion eliminar club")
+        },
+
+        saveClub: function(){
+            alert("Funcion Crear Club")
         }
 
 
 
-
-        /************************************ */
+        /***************FIN CRUD********************* */
 
         });
 
