@@ -1,5 +1,5 @@
-.tableTitle{
-    text-align: center; /* Centra el texto horizontalmente */
-    vertical-align: middle; /* Centra el texto verticalmente */
-    margin:0
+.noMarginPadding{
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: red;
 }

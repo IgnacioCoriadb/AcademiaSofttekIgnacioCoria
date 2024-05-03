@@ -1,26 +1,20 @@
-<core:FragmentDefinition id="Header"
-	
+<core:FragmentDefinition
+	id="Header"
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
 
+<FlexBox id="_IDGenFlexBox1" justifyContent="SpaceBetween" alignItems="Center" renderType="Bare">
+	<Image id="_IDGenImage1"
+		src="https://timelinecovers.pro/facebook-cover/download/soccer-ball-waiting-for-a-kick-facebook-cover.jpg"
+		width="100%"
+		height="400px"
+		densityAware="false"
+		backgroundSize="Cover"
+	/>
+</FlexBox>
 
-	<Page id="_IDHeader" showHeader="false">
-		<landmarkInfo>
-			<PageAccessibleLandmarkInfo id="_IDGenPageAccessibleLandmarkInfo1"
-				rootRole="Region"
-				rootLabel="{i18n>Home_rootLabel}"
-				contentRole="Main"
-				contentLabel="{i18n>Home_contentLabel}"/>
-		</landmarkInfo>
-		<Image id="_IDGenImage1"
-			src="https://timelinecovers.pro/facebook-cover/download/soccer-ball-waiting-for-a-kick-facebook-cover.jpg"
-			width="100%"
-			height="400px"
-            densityAware="true"
-			backgroundSize="Cover"
-        />
-    </Page>
 </core:FragmentDefinition>
