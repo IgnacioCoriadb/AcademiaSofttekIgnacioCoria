@@ -23,6 +23,24 @@ sap.ui.define([
                 }else{
                     this.getRouter().navTo("RouteMain")
                 }
-            }
+            },
+              //formatear fecha
+              getFoundationDate: function(date) {
+                 if (!date) {
+                     return "";
+                 }
+                 // Convertir la fecha a un objeto Date si no lo es
+                 if (!(date instanceof Date)) {
+                     date = new Date(date);
+                 }
+ 
+                 // Obtener el día, mes y año de la fecha
+                 const dia = date.getDate();
+                 const mes = date.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+                 const anio = date.getFullYear();
+ 
+                 // Formatear la fecha como "dd/mm/aaaa"
+                 return `${dia}/${mes}/${anio}`;
+             },
         });
     });

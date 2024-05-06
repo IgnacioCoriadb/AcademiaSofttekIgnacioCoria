@@ -29,3 +29,18 @@ label{
     }
 }
 
+
+
+.labelName{
+    margin-right: 0 !important; /* Elimina el margen derecho */
+    padding-right: 0 !important; /* Elimina el relleno derecho */
+}
+
+.grid{
+    margin-top: 20px;
+}
+
+.create{
+    margin-top: 20px;
+}
+

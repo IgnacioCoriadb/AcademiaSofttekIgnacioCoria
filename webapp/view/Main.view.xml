@@ -16,76 +16,94 @@
 	<SplitContainer
 		id="SplitContDemo"
 		initialDetail="ClubDetail"
-		initialMaster="master"
+		initialMaster="master"	
+	>
+	<detailPages>
+		<Page
+			id="allClubes"
+			title="Todos los clubes"
+			backgroundDesign= "List"
 		>
-		<detailPages>
-			<Page
-				id="allClubes"
-				title="Todos los clubes"
-				backgroundDesign= "Solid"
-			>
 			<content>
 				<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.Clubes" type="XML"/>
 			</content>
-			</Page>
-			<Page
-				id="createClub"
-				title="Crear un nuevo club"
-				backgroundDesign= "Solid"
-				
-				>
+		</Page>
+		<Page
+			id="createClub"
+			title="Crear un nuevo club"
+			backgroundDesign= "List"
+		>
 			<content>
 				<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreateClub" type="XML"/>
+				<FlexBox id="_IDGenFlexssBox1" alignItems="Center" justifyContent="Center">
+					<Button id="buttonCreate" text="Guardar" press="createClub">
+						<layoutData>
+							<l:GridData id="_IDGenGridData2" span="XL12 L12 M12 S12" />
+						</layoutData>
+					</Button>	
+				</FlexBox>
 			</content>
+		</Page>
 
-		
-			</Page>
-			<Page
-				id="league"
-				title="Ligas"
-				backgroundDesign= "Solid"
-		
-				>
-				<!-- <Label id="_IDLeague" text="Ligas" /> -->
-			
-			</Page>
-		</detailPages>
-		<masterPages>
-			<Page
-				id="master"
-				title="Clubes y Jugadores"
-				backgroundDesign= "List">
-				<List id="_IDGenList1">
-					<StandardListItem id="_IdClubes" title="Clubes" type="Navigation" press=".onPressGoToMaster" />
-					<StandardListItem id="_IdPlayers" title="Jugadores" type="Navigation" press=".onPressGoToMaster" />
-				</List>
-			</Page>
-			<Page
-				id="listClubes"
-				title="Clubes"
-				backgroundDesign= "List"
-				showNavButton="true"
-				navButtonPress=".onPressMasterBack"
-				>
-				<List id="_IDGenList2" itemPress=".onListItemPress">
-					<StandardListItem id="_IDGenStandardListItem2" title="Todos los clubes" type="Active" custom:to="allClubes" />
-					<StandardListItem id="_IDGenStandardListItem3" title="Crear un nuevo club" type="Active" custom:to="createClub" />
-					<StandardListItem id="_IDGenStandardListItem4" title="Ligas" type="Active" custom:to="league" />
-				</List>
-			</Page>
-			<Page
-				id="listPlayers"
-				title="Jugadores"
-				backgroundDesign= "List"
-				showNavButton="true"
-				navButtonPress=".onPressMasterBack"
-				>
-				<List id="_IDGenLists2" itemPress=".onListItemPress">
-					<StandardListItem id="_IDGenStandardsListItem2" title="Todos los jugadores" type="Active" custom:to="detail" />
-					<StandardListItem id="_IDGenStandardLsistItem3" title="Crear un nuevo jugador" type="Active" custom:to="detailDetail" />
-				</List>
-				
-			</Page>
+		<Page
+			id="allPlayers"
+			title="Todos los jugadores"
+			backgroundDesign= "List"
+		>
+			<content>
+  				<Text id="_IDfgGenText1" text="Todos los jugarodes" class="sapMTitle" />	
+  
+  		</content>
+		</Page>
+		<Page
+			id="createPlayer"
+			title="Todos los jugadores"
+			backgroundDesign= "List"
+		>
+			<content>
+  				<Text id="_IDfgGeneText1" text="Crear Jugador" class="sapMTitle" />	
+  
+  		</content>
+		</Page>
+
+
+
+
+	</detailPages>
+	<masterPages>
+		<Page
+			id="master"
+			title="Clubes y Jugadores"
+			backgroundDesign= "List">
+			<List id="_IDGenList1">
+				<StandardListItem id="_IdClubes" title="Clubes" type="Navigation" press=".onPressGoToMaster" />
+				<StandardListItem id="_IdPlayers" title="Jugadores" type="Navigation" press=".onPressGoToMaster" />
+			</List>
+		</Page>
+		<Page
+			id="listClubes"
+			title="Clubes"
+			backgroundDesign= "List"
+			showNavButton="true"
+			navButtonPress=".onPressMasterBack"
+		>
+		<List id="_IDGenList2" itemPress=".onListItemPress">
+			<StandardListItem id="_IDGenStandardListItem2" title="Todos los clubes" type="Active" custom:to="allClubes" />
+			<StandardListItem id="_IDGenStandardListItem3" title="Crear un nuevo club" type="Active" custom:to="createClub" />
+		</List>
+		</Page>
+		<Page
+			id="listPlayers"
+			title="Jugadores"
+			backgroundDesign= "List"
+			showNavButton="true"
+			navButtonPress=".onPressMasterBack"
+		>
+			<List id="_IDGenLists2" itemPress=".onListItemPress">
+				<StandardListItem id="_IDGenStandardsListItem2" title="Todos los jugadores" type="Active" custom:to="allPlayers" />
+				<StandardListItem id="_IDGenStandardLsistItem3" title="Crear un nuevo jugador" type="Active" custom:to="createPlayer" />
+			</List>	
+		</Page>
 		</masterPages>
 	</SplitContainer>
 	</Page>

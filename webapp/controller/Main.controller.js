@@ -12,6 +12,8 @@ sap.ui.define([
         return BaseController.extend("com.sofftek.aca20241q.controller.Main", {
             onInit: function () {
                 that = this;   
+                var oButton = this.getView().byId("buttonCreate");
+                oButton.setEnabled(false);
             },
 
            
@@ -69,33 +71,132 @@ sap.ui.define([
 		},
         /**********************************FIN NAVBAR*****************************************/
 
-
-        //formatear fecha
-        getFoundationDate: function(date) {
-            
-            if (!date) {
-                return "";
-            }
-            // Convertir la fecha a un objeto Date si no lo es
-            if (!(date instanceof Date)) {
-                date = new Date(date);
-               alert(date)
-            }
-
-            // Obtener el día, mes y año de la fecha
-            const dia = date.getDate();
-            const mes = date.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
-            const anio = date.getFullYear();
-
-            // Formatear la fecha como "dd/mm/aaaa"
-            return `${dia}/${mes}/${anio}`;
-        },
     
 
-        /*************CRUD***********************/
-        editClub: function(){
-            alert("Funcion editar club")
+        /*************CRUD CLUBES***********************/
+
+        validateInputCreateClub:function(){
+        
+            let name = this.getView().byId("name").getValue();
+            let city = this.getView().byId("city").getValue();
+            let country = this.getView().byId("country").getValue();
+            let league = this.getView().byId("league").getValue();
+            var oDatePicker = this.getView().byId("foundationDate").getDateValue();
+           
+            //convertir la fecha a el formato de la base de datos
+            var dateObj = new Date(oDatePicker);
+            var year = dateObj.getFullYear();
+            var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
+            var day = ("0" + dateObj.getDate()).slice(-2);
+            var formattedDate = year + "-" + month + "-" + day + "T00:00:00";            
+
+            // Validar que los campos no estén vacíos
+            if (!name || !city || !country || !league || !oDatePicker) {
+                sap.m.MessageToast.show("Por favor, complete todos los campos.");
+             
+                return; // Detener la función si algún campo está vacío
+            }else{
+                // Convertir la fecha a el formato de la base de datos
+                var dateObj = new Date(oDatePicker);
+                var year = dateObj.getFullYear();
+                var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
+                var day = ("0" + dateObj.getDate()).slice(-2);
+                var formattedDate = year + "-" + month + "-" + day + "T00:00:00";
+    
+                var data = {
+                    Name: name,
+                    City: city,
+                    Country: country,
+                    League: league,
+                    FoundationDate: formattedDate
+                };
+                var oButton = this.getView().byId("buttonCreate");
+                oButton.setEnabled(true);
+    
+                return data;
+            }
+
+
+          
         },
+
+
+        createClub:function(){
+            let oDataModel = this.getOwnerComponent().getModel();
+            let dataValidated =this.validateInputCreateClub();
+
+            if(dataValidated){
+                oDataModel.create("/ClubSet", dataValidated, {
+                    success: function(oResponse) {
+                        sap.m.MessageToast.show("Club creado correctamente");
+                        // refrescar el modelo para actualizar la tabla después de la creación
+                        that.getOwnerComponent().getModel().refresh(true, true);
+                    },
+                    error: function(oError) {
+                        sap.m.MessageToast.show("No se pudo crear el club");
+                    }
+                });
+            }else{
+                alert("todos los campos son obligatorios")
+            }
+          
+        },
+
+
+
+        modalEditClub: function(){
+            //abrir Modal
+            if (!this.oCreateFragment) {
+                this.oCreateFragment =
+                    sap.ui.core.Fragment.load({
+                        name: "com.sofftek.aca20241q.view.fragments.DialogEditClub",
+                        controller: that
+                    }).then(function (oDialog) {
+                        that.getView().addDependent(oDialog);
+                        let oModel = new sap.ui.model.json.JSONModel({
+                            "Nombre": "",
+                            "Puntuacion": ""
+                        })
+                        oModel.setDefaultBindingMode("TwoWay");
+                        oDialog.setModel(oModel, "ClubEdit");
+                        oDialog.attachAfterClose(that._afterCloseDialog);
+                        return oDialog;
+                    }.bind(that));
+            }
+            that.oCreateFragment.then(function (oDialog) {
+                oDialog.open();
+            }.bind(that));
+        },
+
+        editClub: function(){
+            //llamar a la funcion para abrir modal
+            that.modalEditClub();
+          
+            
+            
+            
+            
+            
+            // alert("Funcion editar club")
+            //obtengo el id para pegarle al back , me retorna /ClubSet('006')
+            let idClub = oEvent.getSource().getBindingContext().getPath();
+
+            let oDataModel = this.getOwnerComponent().getModel();
+            oDataModel.update(`/${idClub}`, data, {
+                success: function(oResponse) {
+                    sap.m.MessageToast.show("Club editado correctamente");
+                    // refrescar el modelo para actualizar la tabla después de editar
+                    that.getOwnerComponent().getModel().refresh(true, true);
+                },
+                error: function(oError) {
+                    sap.m.MessageToast.show("No se pudo editar el club");
+                }
+            });
+            
+
+        },
+
+
         deleteClub: function(oEvent){
             //obtengo el id para pegarle al back , me retorna /ClubSet('006')
             let idClub = oEvent.getSource().getBindingContext().getPath();
@@ -113,15 +214,13 @@ sap.ui.define([
             })
         },
 
-        saveClub: function(){
-            alert("Funcion Crear Club")
-        },
 
         /***************FIN CRUD********************* */
 
         /*************Filtros en all clubes****************************/
         onSearchChangeFilter:function(oEvent){
             let dataSearch = oEvent.mParameters.newValue;
+
             this.searchInDatabase(dataSearch);
         },
         searchInDatabase: function(dataSearch) {
@@ -129,13 +228,20 @@ sap.ui.define([
         },
         /*************************************************************/
 
-        /***********************VALIDATE FORM*****************************/
+
+        /***********obtener jugadores del club********************* */
+
+        getPlayersClub:function(oEvent){
+            let idClub = oEvent.getSource().getBindingContext().getProperty('IdClub');
+
+            this.getRouter().navTo("Detail", {
+                IdClub: idClub
+            });
+        }
 
 
+        /********************************************************* */
 
-
-        /****************************************************************/
-        
         });
 
 

@@ -1,40 +1,56 @@
-<mvc:View controllerName="com.sofftek.aca20241q.controller.Detail"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m"
-    xmlns:f="sap.f"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:c="sap.ui.core"
+<mvc:View xmlns:m="sap.m" controllerName="com.sofftek.aca20241q.controller.Detail"
+    xmlns="sap.ui.webc.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    height="100%"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+>
+<m:VBox id="_IDGenVBox1" class="sapUiSmallMargin">		
+	<m:SearchField id="_IDGenSearchField2" width="auto" placeholder="Escribe aquí para buscar..." liveChange="onSearchChangeFilterPlayers" />
+</m:VBox>
+
+    <m:HBox
+        id="_IDGenList1"   
+        justifyContent="Center"
+        width="100%" wrap="Wrap"
+        items="{
+            path:'ToPlayerSet',
+                parameters: {expand: 'ToClub'}
+            }"
     >
-    <Page id="DetailPage" title="Jugadores del Club" showNavButton="true" navButtonPress="onBack">
-    
-    <content>
-         <Table id="table" mode="SingleSelectMaster" items="{ToPlayerSet}" selectionChange="onSelectionItem">
-         
-                <columns>
-                    <Column id="columnIdClub">
-                            <Text  id="textIdName" text="Nombre"></Text>
-                    </Column>
-                    <Column id="ColumnLastName">
-                        <Text  id="textIdLastName" text="Apellido"></Text>
-                    </Column>
-                    <Column id="ColumnBirthDate">
-                    <Text  id="textIdBirthDate" text="Fecha de Nacimiento"></Text>
-                    </Column>
-                    <Column id="ColumnNationality">
-                    <Text  id="textNationality" text="Nacionalidad"></Text> 
-                    </Column>
-                </columns>
-                <ColumnListItem id="columnListClub" >
-                    <cells>
-                        <Text  id="textIdNameCell" text="{Name}"/>
-                        <Text  id="textIdLastNameCell" text="{LastName}"/>
-                        <Text  id="textIdBirthDateCell" text="{BirthDate}"/>
-                        <Text  id="textIdNacionalidadCell" text="{Nationality}"/>
-                    </cells>
-                </ColumnListItem>
-            </Table>
+     <Card id="_IDGenC3ard1" width="250px" height="300px"  class="sapUiSmallMargin" >
+        <header>
+            <CardHeader id="_IDGenCardH45eader1" titleText="Jugador del club" subtitleText="{ToClub/Name}">
+                <!-- <avatar>
+                    <Icon id="_IDGenIcon1" name="group" />
+                </avatar> -->
+            </CardHeader>
+        </header>
+        <List id="_ID34GenList1" separators="None" >
+            <StandardListItem id="_IDGenStan345dardListItem1"
+                text="Nombre" 
+                description="{Name}"
+            />
+            <StandardListItem id="_IDGenStandar34dListItem2"
+                text="Apellido" 
+                description="{LastName}"
+            />
+            <StandardListItem id="_IDGenStandar34dListItem22"
+                text="Fecha de Nacimiento" 
+                description="{
+                    path: 'BirthDate',
+                    formatter: '.getFoundationDate'
+                }"
+            />
+            <StandardListItem id="_IDGenStan43darddListItem2"
+                text="Nacionalidad" 
+                description="{Nationality}"
+            />
+        </List>
+    </Card>
+    </m:HBox>
 
 
-    </content>
-    </Page>
+
+
 </mvc:View>

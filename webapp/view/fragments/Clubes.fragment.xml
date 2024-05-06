@@ -47,7 +47,10 @@
                 <Column id="_IDGenColumn5"  demandPopin="true" class="foundationDate">
                     <Text id="_IDFoundationDate" text="Fundación"/>
                 </Column>
-                <Column id="_IDGenColumn6"  demandPopin="true">
+                  <Column id="_IDGenColumn6"  demandPopin="true" class="foundationDate">
+                    <Text id="_Players" text="Jugadores"/>
+                </Column>
+                <Column id="_IDGenColumn7"  demandPopin="true">
                     <Text id="_IDActions"  text="Acciones"/>
                 </Column>
             </columns>
@@ -62,6 +65,7 @@
                             path: 'FoundationDate',
                             formatter: '.getFoundationDate'
                         }"/>
+                        <Button id="playersClub" text="Ver Jugadores" press="getPlayersClub"></Button>
                         <HBox id="_IDGenHBox1">
                             <core:Icon
                                 id="_IDGenIconEdit"

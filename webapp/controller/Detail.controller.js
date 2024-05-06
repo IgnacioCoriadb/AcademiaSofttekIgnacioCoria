@@ -56,7 +56,20 @@ sap.ui.define([
 
             },
 
-      
+            //filtrar busqueda
+            onSearchChangeFilterPlayers:function(oEvent){
+                let dataSearch = oEvent.mParameters.newValue;
+            
+                this.searchInDatabase(dataSearch);
+            },
+            searchInDatabase: function(dataSearch) {
+                console.log(dataSearch)
+            },
+
+          
 
         });
+
+
+        
     });
