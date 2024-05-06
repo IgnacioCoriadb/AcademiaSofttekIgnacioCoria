@@ -61,9 +61,15 @@
 			backgroundDesign= "List"
 		>
 			<content>
-  				<Text id="_IDfgGeneText1" text="Crear Jugador" class="sapMTitle" />	
-  
-  		</content>
+				<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreatePlayer" type="XML"/>
+					<FlexBox id="_IDGenFlexssBodx15" alignItems="Center" justifyContent="Center">
+						<Button id="buttonCreatePlayer" text="Guardar" press="createPlayer">
+							<layoutData>
+								<l:GridData id="_IDGenGridgfgfsDatay5" span="XL12 L12 M12 S12" />
+							</layoutData>
+						</Button>	
+					</FlexBox>
+			</content>
 		</Page>
 
 
