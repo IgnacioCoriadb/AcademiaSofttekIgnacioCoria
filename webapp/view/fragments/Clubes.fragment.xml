@@ -15,6 +15,14 @@
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
 
+	<FlexBox id="_IDGenFlexBox134"
+	    height="50px"
+	    alignItems="Center"
+	    justifyContent="End"
+        width="90%"
+        >
+		<Button id="_IDGenButton143" text="Crear Jugador" press="onPress" />
+	</FlexBox>
   <Table id="idTable" items="{ClubSetModel>/}">
             <headerToolbar>
                 <Toolbar id="_IDGenToolbar1" >
