@@ -378,18 +378,21 @@ sap.ui.define([
 
 
         deleteClub: function(oEvent){
+            let oModel = oEvent.getSource().getBindingContext("ClubSetModel").getObject();
             //obtengo el id para pegarle al back , me retorna /ClubSet('006')
-            let idClub = oEvent.getSource().getBindingContext().getPath();
-
+            let idClub = oModel.IdClub; 
+            let url = `/ClubSet('${idClub}')`;
             let oDataModel = this.getOwnerComponent().getModel();
-            oDataModel.remove(`${idClub}`,{
+            oDataModel.remove(url,{
                 success : function(oResponse){
                     sap.m.MessageBox.success("Club eliminado correctamente");
                     //refrescar el modelo para que se actualice la tabla despues de eliminar
                     that.getOwnerComponent().getModel().refresh(true,true);
+                    that.onReadEmpData();
+
                 },
                 error: function(oError){
-                    sap.m.MessageBox.success("No se pudo eliminar el club");
+                    sap.m.MessageBox.error("No se pudo eliminar el club");
                 }
             })
         },
