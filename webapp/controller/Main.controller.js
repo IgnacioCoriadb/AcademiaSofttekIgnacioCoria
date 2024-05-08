@@ -186,7 +186,6 @@ sap.ui.define([
                         oModel.setDefaultBindingMode("TwoWay");
                         oDialog.setModel(oModel, "PlayerCreate");
                         oDialog.attachAfterClose(that._afterCloseDialog);
-                        console.log(oDialog)
                         return oDialog;
                     }.bind(that));
             }
@@ -196,12 +195,9 @@ sap.ui.define([
         },
         
         _afterCloseDialog: function(oEvent){
-         
-            debugger
             oEvent.getSource().destroy();
             that.oCreateFragment = null;
          },
-
 
 
         validateInputCreatePlayer:function(){

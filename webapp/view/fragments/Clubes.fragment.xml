@@ -19,9 +19,9 @@
 	    height="50px"
 	    alignItems="Center"
 	    justifyContent="End"
-        width="90%"
+        width="99%"
         >
-		<Button id="_IDGenButton143" text="Crear Jugador" press="onPress" />
+		<Button id="_IDGenButton143" text="Crear Jugador" press="openModalCreatePlayer" />
 	</FlexBox>
   <Table id="idTable" items="{ClubSetModel>/}">
             <headerToolbar>
