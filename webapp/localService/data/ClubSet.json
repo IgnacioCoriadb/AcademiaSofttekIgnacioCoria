@@ -1,0 +1,642 @@
+[
+    {
+        "Name": "Name1",
+        "City": "City1",
+        "Country": "Country1",
+        "League": "League1",
+        "FoundationDate": "/Date(1263634459000)/",
+        "IdClub": "Fsh"
+    },
+    {
+        "Name": "Name2",
+        "City": "City2",
+        "Country": "Country2",
+        "League": "League2",
+        "FoundationDate": "/Date(1260913387000)/",
+        "IdClub": "OkB"
+    },
+    {
+        "Name": "Name3",
+        "City": "City3",
+        "Country": "Country3",
+        "League": "League3",
+        "FoundationDate": "/Date(340080901000)/",
+        "IdClub": "dTu"
+    },
+    {
+        "Name": "Name4",
+        "City": "City4",
+        "Country": "Country4",
+        "League": "League4",
+        "FoundationDate": "/Date(114688466000)/",
+        "IdClub": "uVh"
+    },
+    {
+        "Name": "Name5",
+        "City": "City5",
+        "Country": "Country5",
+        "League": "League5",
+        "FoundationDate": "/Date(221023224000)/",
+        "IdClub": "yeX"
+    },
+    {
+        "Name": "Name6",
+        "City": "City6",
+        "Country": "Country6",
+        "League": "League6",
+        "FoundationDate": "/Date(894587961000)/",
+        "IdClub": "FEJ"
+    },
+    {
+        "Name": "Name7",
+        "City": "City7",
+        "Country": "Country7",
+        "League": "League7",
+        "FoundationDate": "/Date(93303986000)/",
+        "IdClub": "VIZ"
+    },
+    {
+        "Name": "Name8",
+        "City": "City8",
+        "Country": "Country8",
+        "League": "League8",
+        "FoundationDate": "/Date(1296147154000)/",
+        "IdClub": "RNP"
+    },
+    {
+        "Name": "Name9",
+        "City": "City9",
+        "Country": "Country9",
+        "League": "League9",
+        "FoundationDate": "/Date(879814152000)/",
+        "IdClub": "RdP"
+    },
+    {
+        "Name": "Name10",
+        "City": "City10",
+        "Country": "Country10",
+        "League": "League10",
+        "FoundationDate": "/Date(55991676000)/",
+        "IdClub": "rSp"
+    },
+    {
+        "Name": "Name11",
+        "City": "City11",
+        "Country": "Country11",
+        "League": "League11",
+        "FoundationDate": "/Date(249189835000)/",
+        "IdClub": "zTW"
+    },
+    {
+        "Name": "Name12",
+        "City": "City12",
+        "Country": "Country12",
+        "League": "League12",
+        "FoundationDate": "/Date(1271451993000)/",
+        "IdClub": "oSQ"
+    },
+    {
+        "Name": "Name13",
+        "City": "City13",
+        "Country": "Country13",
+        "League": "League13",
+        "FoundationDate": "/Date(565153097000)/",
+        "IdClub": "gQt"
+    },
+    {
+        "Name": "Name14",
+        "City": "City14",
+        "Country": "Country14",
+        "League": "League14",
+        "FoundationDate": "/Date(923029640000)/",
+        "IdClub": "yvv"
+    },
+    {
+        "Name": "Name15",
+        "City": "City15",
+        "Country": "Country15",
+        "League": "League15",
+        "FoundationDate": "/Date(1037654124000)/",
+        "IdClub": "weM"
+    },
+    {
+        "Name": "Name16",
+        "City": "City16",
+        "Country": "Country16",
+        "League": "League16",
+        "FoundationDate": "/Date(1143984728000)/",
+        "IdClub": "WeF"
+    },
+    {
+        "Name": "Name17",
+        "City": "City17",
+        "Country": "Country17",
+        "League": "League17",
+        "FoundationDate": "/Date(585869322000)/",
+        "IdClub": "vPh"
+    },
+    {
+        "Name": "Name18",
+        "City": "City18",
+        "Country": "Country18",
+        "League": "League18",
+        "FoundationDate": "/Date(670710667000)/",
+        "IdClub": "HCk"
+    },
+    {
+        "Name": "Name19",
+        "City": "City19",
+        "Country": "Country19",
+        "League": "League19",
+        "FoundationDate": "/Date(867529549000)/",
+        "IdClub": "Yfl"
+    },
+    {
+        "Name": "Name20",
+        "City": "City20",
+        "Country": "Country20",
+        "League": "League20",
+        "FoundationDate": "/Date(96880515000)/",
+        "IdClub": "DeQ"
+    },
+    {
+        "Name": "Name21",
+        "City": "City21",
+        "Country": "Country21",
+        "League": "League21",
+        "FoundationDate": "/Date(783479969000)/",
+        "IdClub": "vEs"
+    },
+    {
+        "Name": "Name22",
+        "City": "City22",
+        "Country": "Country22",
+        "League": "League22",
+        "FoundationDate": "/Date(262767420000)/",
+        "IdClub": "ARI"
+    },
+    {
+        "Name": "Name23",
+        "City": "City23",
+        "Country": "Country23",
+        "League": "League23",
+        "FoundationDate": "/Date(810989141000)/",
+        "IdClub": "Olh"
+    },
+    {
+        "Name": "Name24",
+        "City": "City24",
+        "Country": "Country24",
+        "League": "League24",
+        "FoundationDate": "/Date(982600787000)/",
+        "IdClub": "mRf"
+    },
+    {
+        "Name": "Name25",
+        "City": "City25",
+        "Country": "Country25",
+        "League": "League25",
+        "FoundationDate": "/Date(563402260000)/",
+        "IdClub": "exw"
+    },
+    {
+        "Name": "Name26",
+        "City": "City26",
+        "Country": "Country26",
+        "League": "League26",
+        "FoundationDate": "/Date(843367232000)/",
+        "IdClub": "xhD"
+    },
+    {
+        "Name": "Name27",
+        "City": "City27",
+        "Country": "Country27",
+        "League": "League27",
+        "FoundationDate": "/Date(787331731000)/",
+        "IdClub": "WkB"
+    },
+    {
+        "Name": "Name28",
+        "City": "City28",
+        "Country": "Country28",
+        "League": "League28",
+        "FoundationDate": "/Date(760819554000)/",
+        "IdClub": "Emv"
+    },
+    {
+        "Name": "Name29",
+        "City": "City29",
+        "Country": "Country29",
+        "League": "League29",
+        "FoundationDate": "/Date(905301599000)/",
+        "IdClub": "wfo"
+    },
+    {
+        "Name": "Name30",
+        "City": "City30",
+        "Country": "Country30",
+        "League": "League30",
+        "FoundationDate": "/Date(191867177000)/",
+        "IdClub": "JvX"
+    },
+    {
+        "Name": "Name31",
+        "City": "City31",
+        "Country": "Country31",
+        "League": "League31",
+        "FoundationDate": "/Date(537149345000)/",
+        "IdClub": "IDT"
+    },
+    {
+        "Name": "Name32",
+        "City": "City32",
+        "Country": "Country32",
+        "League": "League32",
+        "FoundationDate": "/Date(1182353919000)/",
+        "IdClub": "RPB"
+    },
+    {
+        "Name": "Name33",
+        "City": "City33",
+        "Country": "Country33",
+        "League": "League33",
+        "FoundationDate": "/Date(795415284000)/",
+        "IdClub": "Spw"
+    },
+    {
+        "Name": "Name34",
+        "City": "City34",
+        "Country": "Country34",
+        "League": "League34",
+        "FoundationDate": "/Date(896548206000)/",
+        "IdClub": "SLI"
+    },
+    {
+        "Name": "Name35",
+        "City": "City35",
+        "Country": "Country35",
+        "League": "League35",
+        "FoundationDate": "/Date(1384495045000)/",
+        "IdClub": "lTJ"
+    },
+    {
+        "Name": "Name36",
+        "City": "City36",
+        "Country": "Country36",
+        "League": "League36",
+        "FoundationDate": "/Date(1150441692000)/",
+        "IdClub": "Baf"
+    },
+    {
+        "Name": "Name37",
+        "City": "City37",
+        "Country": "Country37",
+        "League": "League37",
+        "FoundationDate": "/Date(754015229000)/",
+        "IdClub": "ePI"
+    },
+    {
+        "Name": "Name38",
+        "City": "City38",
+        "Country": "Country38",
+        "League": "League38",
+        "FoundationDate": "/Date(664038051000)/",
+        "IdClub": "poQ"
+    },
+    {
+        "Name": "Name39",
+        "City": "City39",
+        "Country": "Country39",
+        "League": "League39",
+        "FoundationDate": "/Date(24889122000)/",
+        "IdClub": "InS"
+    },
+    {
+        "Name": "Name40",
+        "City": "City40",
+        "Country": "Country40",
+        "League": "League40",
+        "FoundationDate": "/Date(1106881385000)/",
+        "IdClub": "UEB"
+    },
+    {
+        "Name": "Name41",
+        "City": "City41",
+        "Country": "Country41",
+        "League": "League41",
+        "FoundationDate": "/Date(330688609000)/",
+        "IdClub": "xLh"
+    },
+    {
+        "Name": "Name42",
+        "City": "City42",
+        "Country": "Country42",
+        "League": "League42",
+        "FoundationDate": "/Date(276326523000)/",
+        "IdClub": "qHP"
+    },
+    {
+        "Name": "Name43",
+        "City": "City43",
+        "Country": "Country43",
+        "League": "League43",
+        "FoundationDate": "/Date(473155850000)/",
+        "IdClub": "reD"
+    },
+    {
+        "Name": "Name44",
+        "City": "City44",
+        "Country": "Country44",
+        "League": "League44",
+        "FoundationDate": "/Date(5750078000)/",
+        "IdClub": "iiZ"
+    },
+    {
+        "Name": "Name45",
+        "City": "City45",
+        "Country": "Country45",
+        "League": "League45",
+        "FoundationDate": "/Date(1234803028000)/",
+        "IdClub": "xbk"
+    },
+    {
+        "Name": "Name46",
+        "City": "City46",
+        "Country": "Country46",
+        "League": "League46",
+        "FoundationDate": "/Date(374226075000)/",
+        "IdClub": "sYp"
+    },
+    {
+        "Name": "Name47",
+        "City": "City47",
+        "Country": "Country47",
+        "League": "League47",
+        "FoundationDate": "/Date(319230885000)/",
+        "IdClub": "wMd"
+    },
+    {
+        "Name": "Name48",
+        "City": "City48",
+        "Country": "Country48",
+        "League": "League48",
+        "FoundationDate": "/Date(371471307000)/",
+        "IdClub": "kmR"
+    },
+    {
+        "Name": "Name49",
+        "City": "City49",
+        "Country": "Country49",
+        "League": "League49",
+        "FoundationDate": "/Date(327483232000)/",
+        "IdClub": "raT"
+    },
+    {
+        "Name": "Name50",
+        "City": "City50",
+        "Country": "Country50",
+        "League": "League50",
+        "FoundationDate": "/Date(489080708000)/",
+        "IdClub": "eNL"
+    },
+    {
+        "Name": "Name51",
+        "City": "City51",
+        "Country": "Country51",
+        "League": "League51",
+        "FoundationDate": "/Date(1029185832000)/",
+        "IdClub": "cZD"
+    },
+    {
+        "Name": "Name52",
+        "City": "City52",
+        "Country": "Country52",
+        "League": "League52",
+        "FoundationDate": "/Date(1363886048000)/",
+        "IdClub": "Xnw"
+    },
+    {
+        "Name": "Name53",
+        "City": "City53",
+        "Country": "Country53",
+        "League": "League53",
+        "FoundationDate": "/Date(436367809000)/",
+        "IdClub": "cfl"
+    },
+    {
+        "Name": "Name54",
+        "City": "City54",
+        "Country": "Country54",
+        "League": "League54",
+        "FoundationDate": "/Date(1191027907000)/",
+        "IdClub": "zEq"
+    },
+    {
+        "Name": "Name55",
+        "City": "City55",
+        "Country": "Country55",
+        "League": "League55",
+        "FoundationDate": "/Date(564950812000)/",
+        "IdClub": "QlJ"
+    },
+    {
+        "Name": "Name56",
+        "City": "City56",
+        "Country": "Country56",
+        "League": "League56",
+        "FoundationDate": "/Date(703916233000)/",
+        "IdClub": "qYE"
+    },
+    {
+        "Name": "Name57",
+        "City": "City57",
+        "Country": "Country57",
+        "League": "League57",
+        "FoundationDate": "/Date(228018971000)/",
+        "IdClub": "kxj"
+    },
+    {
+        "Name": "Name58",
+        "City": "City58",
+        "Country": "Country58",
+        "League": "League58",
+        "FoundationDate": "/Date(1361379592000)/",
+        "IdClub": "MFI"
+    },
+    {
+        "Name": "Name59",
+        "City": "City59",
+        "Country": "Country59",
+        "League": "League59",
+        "FoundationDate": "/Date(42126241000)/",
+        "IdClub": "feo"
+    },
+    {
+        "Name": "Name60",
+        "City": "City60",
+        "Country": "Country60",
+        "League": "League60",
+        "FoundationDate": "/Date(1462110683000)/",
+        "IdClub": "iax"
+    },
+    {
+        "Name": "Name61",
+        "City": "City61",
+        "Country": "Country61",
+        "League": "League61",
+        "FoundationDate": "/Date(1360737472000)/",
+        "IdClub": "afk"
+    },
+    {
+        "Name": "Name62",
+        "City": "City62",
+        "Country": "Country62",
+        "League": "League62",
+        "FoundationDate": "/Date(614001055000)/",
+        "IdClub": "Gcf"
+    },
+    {
+        "Name": "Name63",
+        "City": "City63",
+        "Country": "Country63",
+        "League": "League63",
+        "FoundationDate": "/Date(304904511000)/",
+        "IdClub": "SnO"
+    },
+    {
+        "Name": "Name64",
+        "City": "City64",
+        "Country": "Country64",
+        "League": "League64",
+        "FoundationDate": "/Date(154818207000)/",
+        "IdClub": "eYO"
+    },
+    {
+        "Name": "Name65",
+        "City": "City65",
+        "Country": "Country65",
+        "League": "League65",
+        "FoundationDate": "/Date(970926896000)/",
+        "IdClub": "PtY"
+    },
+    {
+        "Name": "Name66",
+        "City": "City66",
+        "Country": "Country66",
+        "League": "League66",
+        "FoundationDate": "/Date(416764786000)/",
+        "IdClub": "bTL"
+    },
+    {
+        "Name": "Name67",
+        "City": "City67",
+        "Country": "Country67",
+        "League": "League67",
+        "FoundationDate": "/Date(658366709000)/",
+        "IdClub": "aYb"
+    },
+    {
+        "Name": "Name68",
+        "City": "City68",
+        "Country": "Country68",
+        "League": "League68",
+        "FoundationDate": "/Date(1250130673000)/",
+        "IdClub": "ohc"
+    },
+    {
+        "Name": "Name69",
+        "City": "City69",
+        "Country": "Country69",
+        "League": "League69",
+        "FoundationDate": "/Date(1161913500000)/",
+        "IdClub": "kIw"
+    },
+    {
+        "Name": "Name70",
+        "City": "City70",
+        "Country": "Country70",
+        "League": "League70",
+        "FoundationDate": "/Date(337837021000)/",
+        "IdClub": "qXK"
+    },
+    {
+        "Name": "Name71",
+        "City": "City71",
+        "Country": "Country71",
+        "League": "League71",
+        "FoundationDate": "/Date(852311271000)/",
+        "IdClub": "wNT"
+    },
+    {
+        "Name": "Name72",
+        "City": "City72",
+        "Country": "Country72",
+        "League": "League72",
+        "FoundationDate": "/Date(1101684205000)/",
+        "IdClub": "BXN"
+    },
+    {
+        "Name": "Name73",
+        "City": "City73",
+        "Country": "Country73",
+        "League": "League73",
+        "FoundationDate": "/Date(410635214000)/",
+        "IdClub": "cZc"
+    },
+    {
+        "Name": "Name74",
+        "City": "City74",
+        "Country": "Country74",
+        "League": "League74",
+        "FoundationDate": "/Date(509700361000)/",
+        "IdClub": "jcC"
+    },
+    {
+        "Name": "Name75",
+        "City": "City75",
+        "Country": "Country75",
+        "League": "League75",
+        "FoundationDate": "/Date(1121649017000)/",
+        "IdClub": "MOo"
+    },
+    {
+        "Name": "Name76",
+        "City": "City76",
+        "Country": "Country76",
+        "League": "League76",
+        "FoundationDate": "/Date(671980891000)/",
+        "IdClub": "WxX"
+    },
+    {
+        "Name": "Name77",
+        "City": "City77",
+        "Country": "Country77",
+        "League": "League77",
+        "FoundationDate": "/Date(412634071000)/",
+        "IdClub": "aOc"
+    },
+    {
+        "Name": "Name78",
+        "City": "City78",
+        "Country": "Country78",
+        "League": "League78",
+        "FoundationDate": "/Date(18495686000)/",
+        "IdClub": "oZP"
+    },
+    {
+        "Name": "Name79",
+        "City": "City79",
+        "Country": "Country79",
+        "League": "League79",
+        "FoundationDate": "/Date(1299381703000)/",
+        "IdClub": "bME"
+    },
+    {
+        "Name": "Name80",
+        "City": "City80",
+        "Country": "Country80",
+        "League": "League80",
+        "FoundationDate": "/Date(1083469364000)/",
+        "IdClub": "nIo"
+    }
+]

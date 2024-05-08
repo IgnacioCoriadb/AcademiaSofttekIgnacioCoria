@@ -7,7 +7,7 @@
 			<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreateClub" type="XML"/>
         </content>
         <beginButton>
-            <Button id="_IDGenButeton1"  type="Emphasized" text="Crear" press="onCreateClub" />
+            <Button id="_IDGenButeton1"  type="Emphasized" text="Editar" press="editClub"  />
         </beginButton>
         <endButton>
             <Button id="_IDGenButeton2" type="Default" text="Cancelar" press="onCloseClubCreate" />

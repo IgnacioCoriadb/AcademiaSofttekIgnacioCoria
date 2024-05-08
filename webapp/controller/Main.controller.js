@@ -176,6 +176,7 @@ sap.ui.define([
                             "League": "",
                             "FoundationDate": ""
                         });
+                        
     
                     },
                     error: function(oError) {
@@ -216,10 +217,7 @@ sap.ui.define([
             }.bind(that));
         },
         
-        _afterCloseDialog: function(oEvent){
-            oEvent.getSource().destroy();
-            that.oCreateFragment = null;
-         },
+      
 
 
         validateInputCreatePlayer:function(){
@@ -329,10 +327,19 @@ sap.ui.define([
         //***************CRUD CLUB***********************/
 
         modalEditClub: function(oEvent){
-   
-            let values = oEvent.getSource().getBindingContext().getObject()
-            console.log(values)
-            //obtener del oEvent.gent
+            // let oModel = oEvent.getSource().getBindingContext("ClubSetModel").getObject();
+            var oContext = oEvent.getSource().getBindingContext("ClubSetModel");
+            var club = oContext.getObject();
+            let oModel = oEvent.getSource().getModel("FormDataClub");
+
+            oModel.setData({
+                "IdClub": club.IdClub,
+                "Name": club.Name,
+                "City": club.City,
+                "Country": club.Country,
+                "League": club.League,
+                "FoundationDate": club.FoundationDate,
+            });
             //abrir ModaL
             if (!this.oCreateFragment) {
                 // Carga el fragmento del diálogo
@@ -345,7 +352,6 @@ sap.ui.define([
                     
                     oDialog.open();
                     oDialog.attachAfterClose(that._afterCloseDialog);
-            
                     return oDialog;
                 }.bind(this));
             }
@@ -354,19 +360,37 @@ sap.ui.define([
             this.oCreateFragment.then(function(oDialog) {
                 oDialog.open();
             }.bind(this));
+
         },
             
 
-        editClub: function(){
-           
-            let idClub = oEvent.getSource().getBindingContext().getPath();
-
+        editClub: function(oEvent){
+            var oModel = this.getView().getModel("FormDataClub");
+            let idClub=oModel.getProperty("/IdClub");
+            let url = `/ClubSet('${idClub}')`;
+            let data = oModel.getData();
             let oDataModel = this.getOwnerComponent().getModel();
-            oDataModel.update(`/${idClub}`, data, {
+            let foundationDate= oModel.getData().FoundationDate;
+          
+            //convertir la fecha a el formato de la base de datos
+            var dateObj = new Date(foundationDate);
+            var year = dateObj.getFullYear();
+            var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
+            var day = ("0" + dateObj.getDate()).slice(-2);
+            var formattedDate = year + "-" + month + "-" + day + "T00:00:00";         
+        
+        
+            oModel.setProperty("/FoundationDate", formattedDate);
+
+
+
+            oDataModel.update(url, data, {
                 success: function(oResponse) {
                     sap.m.MessageToast.show("Club editado correctamente");
                     // refrescar el modelo para actualizar la tabla después de editar
                     that.getOwnerComponent().getModel().refresh(true, true);
+                    that.onReadEmpData();
+                    that.closeDialogPlayer();
                 },
                 error: function(oError) {
                     sap.m.MessageToast.show("No se pudo editar el club");
@@ -398,8 +422,9 @@ sap.ui.define([
         },
         //Jugadores del club
         getPlayersClub:function(oEvent){
-            let idClub = oEvent.getSource().getBindingContext().getProperty('IdClub');
-
+            let oModel = oEvent.getSource().getBindingContext("ClubSetModel").getObject();
+            //obtengo el id para pegarle al back , me retorna /ClubSet('006')
+            let idClub = oModel.IdClub; 
             this.getRouter().navTo("Detail", {
                 IdClub: idClub
             });
@@ -432,13 +457,25 @@ sap.ui.define([
             // Aplicar el filtro a las filas de la tabla
             var oBinding = oTable.getBinding("items");
             oBinding.filter(oFilter, sap.ui.model.FilterType.Application);
-        }
+        },
         
 
 
       
         /************FIN CRUD CLUB******************** */
+        _afterCloseDialog: function(oEvent){
+            let oModel = oEvent.getSource().getModel("FormDataClub");
 
+            oModel.setData({
+                "Name":"",
+                "City":"",
+                "Country":"",
+                "League": "",
+                "FoundationDate": ""
+            });
+            oEvent.getSource().destroy();
+            that.oCreateFragment = null;
+         },
 
     
         })
