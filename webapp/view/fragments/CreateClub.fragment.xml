@@ -11,19 +11,19 @@
 
 	<f:SimpleForm id="SimpleFormDisplay480" editable="false" layout="ResponsiveGridLayout" title="" labelSpanL="3" labelSpanM="3" emptySpanL="2" emptySpanM="2" columnsL="2" columnsM="2" class="create">
 		<Label id="labelName" text="Nombre"  required="true"/>
-		<Input id="Namfe" placeholder="Ingrese el nombre" value="{ClubEdit>/Name}" liveChange="validateInputCreateClub"/>
+		<Input id="Namfe" placeholder="Ingrese el nombre" value="{FormDataClub>/Name}" />
 
 		<Label id="labelCity" text="Ciudad" required="true"/>
-		<Input id="city" placeholder="Ingrese la ciudad" liveChange="validateInputCreateClub"/>
+		<Input id="city" placeholder="Ingrese la ciudad"  value="{FormDataClub>/City}"/>
 
 		<Label id="labelCountry" text="País"  required="true"/>
-		<Input id="country"  placeholder="Ingrese el país" liveChange="validateInputCreateClub"/>
+		<Input id="country"  placeholder="Ingrese el país" value="{FormDataClub>/Country}" />
 
 		<Label id="labelLeague" text="Liga"  required="true"/>
-		<Input id="league" placeholder="Ingrese la liga" liveChange="validateInputCreateClub"/>
+		<Input id="league" placeholder="Ingrese la liga"  value="{FormDataClub>/League}"/>
 
 		<Label id="labelDate" text="Fecha de Fundación" required="true"/>
-		<DatePicker id="foundationDate" change="validateInputCreateClub"/>
+		<DatePicker id="foundationDate"  value="{FormDataClub>/FoundationDate}"/>
 	</f:SimpleForm>	
 
 
