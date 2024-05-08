@@ -9,8 +9,8 @@
 >
 
 	<f:SimpleForm id="FormPlayerId" editable="false" layout="ResponsiveGridLayout" title="" labelSpanL="3" labelSpanM="3" emptySpanL="2" emptySpanM="2" columnsL="2" columnsM="2" class="create">
-		<Label id="labelNamePlayer" text="Nombre"  required="true"/>
-		<Input id="namePlayer" placeholder="Ingrese el nombre" liveChange="validateInputCreateClub"/>
+		<Label id="labelNamePlayers" text="Nombre"  required="true"/>
+		<Input id="namePlayers" placeholder="Ingrese el nombre" liveChange="validateInputCreateClub"/>
 
 		<Label id="labelLastName" text="Apellido" required="true"/>
 		<Input id="lastName" placeholder="Ingrese el apellido" liveChange="validateInputCreateClub"/>

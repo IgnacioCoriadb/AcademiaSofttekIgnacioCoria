@@ -116,6 +116,13 @@
                     "target": [
                         "TargetDetail"
                     ]
+                },
+                {
+                    "name": "AllPlayers",
+                    "pattern": "",
+                    "target": [
+                        "TargetPlayers"
+                    ]
                 }
                 
 
@@ -135,6 +142,13 @@
                     "clearControlAggregation": false,
                     "viewId": "DetailId",
                     "viewName": "Detail"
+                },
+                "TargetPlayers": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "AllPlayers",
+                    "viewName": "AllPlayers"
                 }
                 
             }

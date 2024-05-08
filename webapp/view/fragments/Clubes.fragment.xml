@@ -15,22 +15,15 @@
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
 
-
-	<Page id="_IDHeadderCONBORDE" showHeader="false" class="header" >
-        <FlexBox id="_IDGenFlsdsexBox1" justifyContent="Center" width="100%" class="search" >
-            <items>
-                <SearchField id="__xsf" class="searchInput" placeholder="Escribe aquí para buscar..." liveChange="onSearchChangeFilter"/>
-            </items>
-        </FlexBox>
-	    <f:DynamicPage id="_IDGenDynamicPage1" headerExpanded="true">     
-        <f:content>
-            <Table id="tableClube" 
-                inset="false"
-                mode="None"
-                items="{
-                    path: '/ClubSet'
-                }"
-            >
+  <Table id="idTable" items="{ClubSetModel>/}">
+            <headerToolbar>
+                <Toolbar id="_IDGenToolbar1" >
+                    <content>
+                    <ToolbarSpacer id="_IDGenToolbarSpacer1" width="60%" class="searchInput"></ToolbarSpacer>
+                     <SearchField id="__xsf" class="searchInput" placeholder="Filtrar por nombre, ciudad o liga" liveChange="onSearchChangeFilter" search="handleSearch" />
+                    </content>
+                </Toolbar>
+            </headerToolbar>
             <columns>
                 <Column id="_IDGenColumn1"  demandPopin="true">
                     <Text id="_IDGenText1" text="Nombre"/>
@@ -55,16 +48,17 @@
                 </Column>
             </columns>
             <items>
-                <ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle">
+                <ColumnListItem id="_IDGenColumnListItem1" >
                     <cells>
-                        <Text  id="textName" text="{Name}"  />
-                        <Text  id="textCountry" text="{Country}"/>
-                        <Text  id="textCity" text="{City}"/>
-                        <Text  id="textLeague" text="{League}"/>
+
+                        <Text  id="Name" text="{ClubSetModel>Name}"  />
+                        <Text  id="textCity" text="{ClubSetModel>City}"/>
+                        <Text  id="textCountry" text="{ClubSetModel>Country}"/>
+                        <Text  id="textLeague" text="{ClubSetModel>League}"/>
                         <Text id="textFoundationDate" text="{
-                            path: 'FoundationDate',
+                            path: 'ClubSetModel>FoundationDate',
                             formatter: '.getFoundationDate'
-                        }"/>
+                        }"/> 
                         <Button id="playersClub" text="Ver Jugadores" press="getPlayersClub"></Button>
                         <HBox id="_IDGenHBox1">
                             <core:Icon
@@ -72,10 +66,10 @@
                                 src="sap-icon://edit"
                                 class="size5"
                                 color="#007bff"
-                                press="editClub"
+                                press="modalEditClub"
                                 >
                                 <core:layoutData>
-                                    <FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+                                    <FlexItemData id="_IDGenFlex4ItemData1" growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
                             <core:Icon
@@ -90,12 +84,14 @@
                                     <FlexItemData id="_IDGenFlexItemData2" growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                        </HBox>
+                        </HBox> 
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
-        </f:content>
-        </f:DynamicPage>
-    </Page>
+  
+       
+      
+  
+ 
 </core:FragmentDefinition>

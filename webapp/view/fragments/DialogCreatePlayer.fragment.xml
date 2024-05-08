@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.ui.layout.form" 
+    controllerName="com.sofftek.aca20241q.controller.Main"
+    id="CreatePlayer"
+>
+    <Dialog id="DialogCreatePlayer">
+      	<f:SimpleForm id="formularioPlayer" editable="false" layout="ResponsiveGridLayout" title="" labelSpanL="3" labelSpanM="3" emptySpanL="2" emptySpanM="2" columnsL="2" columnsM="2" class="create">
+		  <form:content>
+          	
+            <Label id="labelNamePslayer" text="Nombre"  required="true"/>
+            <Input id="NamePlayer" placeholder="Ingrese el nombre" value="{PlayerCreate>/Name}" valueLiveUpdate="true" />
+
+            <Label id="labelLadtNamePlayer" text="Apellido"  required="true"/>
+            <Input id="LastNamePlayer" placeholder="Ingrese el apellido" value="{PlayerCreate>/LastName}"  />
+
+            <Label id="labelDadte" text="Fecha de Nacimiento" required="true"/>
+            <DatePicker id="BirthDate" change=" validateInputCreatePlayer" value="{PlayerCreate>/BirthDate}"/>
+
+            <Label id="labelLastNationalityPlaye3r" text="Nacionalidad"  required="true"/>
+            <Input id="Nationality" placeholder="Ingrese la nacionalidad" value="{PlayerCreate>/Nationality}" />
+
+            <Label id="labelCludbId" text="Club"  required="true"/>
+            <Select id="IdClub4" change=" validateInputCreatePlayer"
+                items="{
+                    path: '/ClubSet'
+                }"
+                selectedKey="{PlayerCreate>/IdClub}"
+            >
+                <core:ListItem id="idClub4"  key="{IdClub}" text="{Name}" />
+            </Select>
+
+
+            
+        </form:content>
+        <form:layoutData>
+                <FlexItemData id="_IDGenFlexItemDsdfata1" shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
+                </form:layoutData>
+            </f:SimpleForm>	
+
+        <beginButton>
+            <Button id="_IDGenButetosn1"  type="Emphasized" text="Crear" press="createPlayer" />
+        </beginButton>
+        <endButton>
+            <Button id="_IDGenBsuteton2" type="Default" text="Cancelar" press="closeDialogPlayer" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

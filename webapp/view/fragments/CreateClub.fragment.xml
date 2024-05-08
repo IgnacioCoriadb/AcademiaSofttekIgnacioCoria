@@ -11,7 +11,7 @@
 
 	<f:SimpleForm id="SimpleFormDisplay480" editable="false" layout="ResponsiveGridLayout" title="" labelSpanL="3" labelSpanM="3" emptySpanL="2" emptySpanM="2" columnsL="2" columnsM="2" class="create">
 		<Label id="labelName" text="Nombre"  required="true"/>
-		<Input id="name" placeholder="Ingrese el nombre" liveChange="validateInputCreateClub"/>
+		<Input id="Namfe" placeholder="Ingrese el nombre" value="{ClubEdit>/Name}" liveChange="validateInputCreateClub"/>
 
 		<Label id="labelCity" text="Ciudad" required="true"/>
 		<Input id="city" placeholder="Ingrese la ciudad" liveChange="validateInputCreateClub"/>

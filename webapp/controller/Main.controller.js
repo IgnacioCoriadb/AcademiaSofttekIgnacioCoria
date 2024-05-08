@@ -13,8 +13,36 @@ sap.ui.define([
             onInit: function () {
                 that = this;   
                 var oButton = this.getView().byId("buttonCreate");
-                oButton.setEnabled(false);
+                // oButton.setEnabled(false);
+
+                this.onReadEmpData();
             },
+          
+            onReadEmpData: function() {
+                var oModel = this.getOwnerComponent().getModel();
+                var oJSONModel = new sap.ui.model.json.JSONModel();
+                var oBusyDialog = new sap.m.BusyDialog({
+                    title: "Cargando Clubes",
+                    text: "Espere un momento ..." 
+                });
+            
+                oBusyDialog.open();
+            
+                oModel.read("/ClubSet", {
+                    success: function(oResponse) {
+                        oBusyDialog.close();
+                        // Establecer los datos filtrados en el modelo JSON
+                        oJSONModel.setData(oResponse.results);
+                        this.getView().setModel(oJSONModel, "ClubSetModel");
+                    }.bind(this),
+                    error: function(oError) {
+                        oBusyDialog.close();
+                    }
+                });
+            },
+            
+            
+            
 
            
             onExit: function () {
@@ -22,25 +50,24 @@ sap.ui.define([
             },
 
             onBeforeRendering: function () {
-                //el that para poder hacer la consulta de manera global
-                that.oModel = this.getView().getModel("academiaJSONModel");
+        
             },
 
            
 
             onAfterRendering: function () {
-               
+
             },
 
           /*******************NAVBAR*********************** */
           onPressGoToMaster: function(oEvent){
             var oListItem = oEvent.getSource();
             var sListItemId = oListItem.getId();
-         
+            
             // Obtener solo el ID del elemento sin el prefijo
             var aIdParts = sListItemId.split("--");
             var sItemId = aIdParts[aIdParts.length - 1];
-
+         
 
             switch(sItemId){
                 case "_IdClubes":
@@ -115,9 +142,6 @@ sap.ui.define([
     
                 return data;
             }
-
-
-          
         },
 
 
@@ -142,24 +166,27 @@ sap.ui.define([
           
         },
 
-
-
-        modalEditClub: function(){
+             
+        openModalCreatePlayer: function(){
             //abrir Modal
             if (!this.oCreateFragment) {
                 this.oCreateFragment =
                     sap.ui.core.Fragment.load({
-                        name: "com.sofftek.aca20241q.view.fragments.DialogEditClub",
+                        name: "com.sofftek.aca20241q.view.fragments.DialogCreatePlayer",
                         controller: that
                     }).then(function (oDialog) {
                         that.getView().addDependent(oDialog);
                         let oModel = new sap.ui.model.json.JSONModel({
-                            "Nombre": "",
-                            "Puntuacion": ""
+                            "Name": "",
+                            "LastName": "",
+                            "BirthDate": "",
+                            "Nationality": "",
+                            "IdClub": ""
                         })
                         oModel.setDefaultBindingMode("TwoWay");
-                        oDialog.setModel(oModel, "ClubEdit");
+                        oDialog.setModel(oModel, "PlayerCreate");
                         oDialog.attachAfterClose(that._afterCloseDialog);
+                        console.log(oDialog)
                         return oDialog;
                     }.bind(that));
             }
@@ -167,18 +194,144 @@ sap.ui.define([
                 oDialog.open();
             }.bind(that));
         },
+        
+        _afterCloseDialog: function(oEvent){
+         
+            debugger
+            oEvent.getSource().destroy();
+            that.oCreateFragment = null;
+         },
+
+
+
+        validateInputCreatePlayer:function(){
+        
+            // debugger
+            // let lastnamePlayer = this.getView().byId("lastnamePlayer").getValue();
+            // let nationalityPlayer = this.getView().byId("nationalityPlayer").getValue();
+            // let idClub = this.getView().byId("idClub").getValue();
+            // var birthDate = this.getView().byId("birthDate").getDateValue();
+           
+            // //convertir la fecha a el formato de la base de datos
+            // var dateObj = new Date(birthDate);
+            // var year = dateObj.getFullYear();
+            // var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
+            // var day = ("0" + dateObj.getDate()).slice(-2);
+            // var formattedDate = year + "-" + month + "-" + day + "T00:00:00";            
+
+            // // Validar que los campos no estén vacíos
+            // if (!namePlayer || !lastnamePlayer || !nationalityPlayer || !idClub || !birthDate) {
+            //     sap.m.MessageToast.show("Por favor, complete todos los campos.");
+             
+            //     return; // Detener la función si algún campo está vacío
+            // }else{
+            //     // Convertir la fecha a el formato de la base de datos
+            //     var dateObj = new Date(oDatePicker);
+            //     var year = dateObj.getFullYear();
+            //     var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
+            //     var day = ("0" + dateObj.getDate()).slice(-2);
+            //     var formattedDate = year + "-" + month + "-" + day + "T00:00:00";
+    
+            //     var data = {
+            //         Name: namePlayer,
+            //         LastName: lastnamePlayer,
+            //         BirthDate: formattedDate,
+            //         Nationality: nationalityPlayer,
+            //     };
+            //     var oButton = this.getView().byId("buttonCreate");
+            //     oButton.setEnabled(true);
+    
+            //     return data;
+            // }
+
+
+          
+        },
+
+
+       
+
+
+
+
+
+        createPlayer:function(oEvent){
+            let oModel = oEvent.getSource().getModel("PlayerCreate");
+            let oData = oModel.getData();
+
+             //convertir la fecha a el formato de la base de datos
+             var dateObj = new Date(oData.BirthDate);
+             var year = dateObj.getFullYear();
+             var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
+             var day = ("0" + dateObj.getDate()).slice(-2);
+             var formattedDate = year + "-" + month + "-" + day + "T00:00:00";     
+             
+            oData.BirthDate = formattedDate;
+
+             var oDataModel = that.getView().getModel();
+             oDataModel.create("/PlayerSet", oData, {
+                success: function (oResponse) {
+                    var result = oResponse?.results;
+                    sap.m.MessageBox.success("Se creo el jugador ");
+                    that.getOwnerComponent().getModel().refresh(true, true);
+                    that.closeDialogPlayer();
+                },
+                error: function (oError) {
+                    // manejar excepción del servicio
+                    sap.m.MessageBox.error("No se pudo crear el jugador");
+                }
+            });
+         },
+
+   
+
+         closeDialogPlayer:function(){
+            that.oCreateFragment.then(function (oDialog) {
+                oDialog.close();
+            }.bind(that));
+           
+         },
+
+      
+  
+
+
+        
+
+
+        //***************CRUD CLUB***********************/
+
+        modalEditClub: function(oEvent){
+   
+            let values = oEvent.getSource().getBindingContext().getObject()
+            console.log(values)
+            //obtener del oEvent.gent
+            //abrir ModaL
+            if (!this.oCreateFragment) {
+                // Carga el fragmento del diálogo
+                this.oCreateFragment = sap.ui.core.Fragment.load({
+                    name: "com.sofftek.aca20241q.view.fragments.DialogEditClub",
+                    controller: this
+                }).then(function(oDialog) {
+                    this.getView().addDependent(oDialog);
+                    //setear modelo del item seleccionad
+                    
+                    oDialog.open();
+                    oDialog.attachAfterClose(that._afterCloseDialog);
+            
+                    return oDialog;
+                }.bind(this));
+            }
+            
+            // Abre el diálogo después de cargar el fragmento
+            this.oCreateFragment.then(function(oDialog) {
+                oDialog.open();
+            }.bind(this));
+        },
+            
 
         editClub: function(){
-            //llamar a la funcion para abrir modal
-            that.modalEditClub();
-          
-            
-            
-            
-            
-            
-            // alert("Funcion editar club")
-            //obtengo el id para pegarle al back , me retorna /ClubSet('006')
+           
             let idClub = oEvent.getSource().getBindingContext().getPath();
 
             let oDataModel = this.getOwnerComponent().getModel();
@@ -192,9 +345,9 @@ sap.ui.define([
                     sap.m.MessageToast.show("No se pudo editar el club");
                 }
             });
-            
-
         },
+
+
 
 
         deleteClub: function(oEvent){
@@ -213,37 +366,77 @@ sap.ui.define([
                 }
             })
         },
-
-
-        /***************FIN CRUD********************* */
-
-        /*************Filtros en all clubes****************************/
-        onSearchChangeFilter:function(oEvent){
-            let dataSearch = oEvent.mParameters.newValue;
-
-            this.searchInDatabase(dataSearch);
-        },
-        searchInDatabase: function(dataSearch) {
-            console.log(dataSearch)
-        },
-        /*************************************************************/
-
-
-        /***********obtener jugadores del club********************* */
-
+        //Jugadores del club
         getPlayersClub:function(oEvent){
             let idClub = oEvent.getSource().getBindingContext().getProperty('IdClub');
 
             this.getRouter().navTo("Detail", {
                 IdClub: idClub
             });
+        },
+
+        onCloseClubCreate:function(){
+            that.oCreateFragment.then(function (oDialog) {
+                oDialog.close();
+            }.bind(that));
+            that. _onPatternMatched();
+         },
+
+         //filtros
+         onSearchChangeFilter: function(oEvent) {
+            var sValue = oEvent.getSource().getValue();
+        
+            // Crear un filtro para el valor1 y valor2
+            var oFilter = new sap.ui.model.Filter({
+                filters: [
+                    new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, sValue),
+                    new sap.ui.model.Filter("City", sap.ui.model.FilterOperator.Contains, sValue),
+                    new sap.ui.model.Filter("League", sap.ui.model.FilterOperator.Contains, sValue),
+                ],
+                and: false
+            });
+        
+            // Obtener la instancia de la tabla
+            var oTable = this.byId("idTable");
+        
+            // Aplicar el filtro a las filas de la tabla
+            var oBinding = oTable.getBinding("items");
+            oBinding.filter(oFilter, sap.ui.model.FilterType.Application);
         }
+        
 
 
-        /********************************************************* */
+        // searchInDatabase: function(dataSearch) {
+        //     debugger
+        //     let oTable = this.getView().byId("tableClube");
+        //     let oBinding = oTable.getBinding("items");
+          
+         
+        //     if (dataSearch) {
+        //         let oFilter = new sap.ui.model.Filter({
+        //             filters: [
+        //                 new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, dataSearch),
+                        
+        //                 // Agrega más filtros según sea necesario para otras propiedades
+        //             ],
+        //             and: false // Utiliza false para combinar filtros con OR
+        //         });
+               
+        //          console.log( oBinding.filter(oFilter))
 
-        });
+        //         oBinding.filter(oFilter);
+        //     } else {
+        //         // Si el término de búsqueda está vacío, eliminar el filtro para mostrar todos los elementos
+        //         oBinding.filter([]);
+        //     }
+        // },
+      
+        /************FIN CRUD CLUB******************** */
 
 
+    
+        })
+
+     
         
     });

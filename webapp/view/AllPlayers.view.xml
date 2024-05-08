@@ -1,0 +1,17 @@
+<mvc:View xmlns:m="sap.m" controllerName="com.sofftek.aca20241q.controller.Player"
+    id="AllPlayers"
+    xmlns="sap.ui.webc.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    height="100%"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+>
+
+    <m:VBox id="_IDGenVBsdaox1" class="sapUiSmallMargin">		
+        <m:SearchField id="_IDGenSearchFsadield2" width="auto" placeholder="Escribe aquí para buscar..." liveChange="searchInDatabase" />
+    </m:VBox>
+  
+
+      
+
+</mvc:View>

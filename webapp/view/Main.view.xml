@@ -45,17 +45,18 @@
 			</content>
 		</Page>
 
-		<Page
+		<!-- <Page
 			id="allPlayers"
 			title="Todos los jugadores"
 			backgroundDesign= "List"
 		>
-			<content>
-  				<Text id="_IDfgGenText1" text="Todos los jugarodes" class="sapMTitle" />	
-  
-  		</content>
-		</Page>
-		<Page
+	
+		<content>
+		 	<mvc:XMLView id="_IDGenXMLView1" viewName="com.sofftek.aca20241q.view.AllPlayers"/>
+		</content>
+
+		</Page> -->
+		<!-- <Page
 			id="createPlayer"
 			title="Todos los jugadores"
 			backgroundDesign= "List"
@@ -70,7 +71,7 @@
 						</Button>	
 					</FlexBox>
 			</content>
-		</Page>
+		</Page> -->
 
 
 
@@ -83,7 +84,7 @@
 			backgroundDesign= "List">
 			<List id="_IDGenList1">
 				<StandardListItem id="_IdClubes" title="Clubes" type="Navigation" press=".onPressGoToMaster" />
-				<StandardListItem id="_IdPlayers" title="Jugadores" type="Navigation" press=".onPressGoToMaster" />
+				<!-- <StandardListItem id="_IdPlayers" title="Jugadores" type="Navigation" press=".onPressGoToMaster" /> -->
 			</List>
 		</Page>
 		<Page
@@ -98,7 +99,7 @@
 			<StandardListItem id="_IDGenStandardListItem3" title="Crear un nuevo club" type="Active" custom:to="createClub" />
 		</List>
 		</Page>
-		<Page
+		<!-- <Page
 			id="listPlayers"
 			title="Jugadores"
 			backgroundDesign= "List"
@@ -109,7 +110,7 @@
 				<StandardListItem id="_IDGenStandardsListItem2" title="Todos los jugadores" type="Active" custom:to="allPlayers" />
 				<StandardListItem id="_IDGenStandardLsistItem3" title="Crear un nuevo jugador" type="Active" custom:to="createPlayer" />
 			</List>	
-		</Page>
+		</Page> -->
 		</masterPages>
 	</SplitContainer>
 	</Page>
