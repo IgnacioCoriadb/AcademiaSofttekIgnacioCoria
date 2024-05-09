@@ -361,6 +361,7 @@ sap.ui.define([
                 filters: [
                     new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, sValue),
                     new sap.ui.model.Filter("City", sap.ui.model.FilterOperator.Contains, sValue),
+                    new sap.ui.model.Filter("Country", sap.ui.model.FilterOperator.Contains, sValue),
                     new sap.ui.model.Filter("League", sap.ui.model.FilterOperator.Contains, sValue),
                 ],
                 and: false

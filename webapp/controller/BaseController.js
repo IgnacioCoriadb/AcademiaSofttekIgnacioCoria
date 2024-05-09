@@ -42,5 +42,10 @@ sap.ui.define([
                  // Formatear la fecha como "dd/mm/aaaa"
                  return `${dia}/${mes}/${anio}`;
              },
+
+             updtateForm:function(value){
+               alert(value);
+               debugger
+             }
         });
     });

@@ -3,9 +3,9 @@
     xmlns:form="sap.ui.layout.form"
 >
     <Dialog id="DialogEditForm">
-        <content>
-			<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreateClub" type="XML"/>
-        </content>
+    
+		<core:Fragment fragmentName="com.sofftek.aca20241q.view.fragments.CreateClub" type="XML"/>
+      
         <beginButton>
             <Button id="_IDGenButeton1"  type="Emphasized" text="Editar" press="editClub"  />
         </beginButton>
