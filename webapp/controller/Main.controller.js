@@ -360,16 +360,17 @@ sap.ui.define([
             var oFilter = new sap.ui.model.Filter({
                 filters: [
                     new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, sValue),
-            
+                    new sap.ui.model.Filter("City", sap.ui.model.FilterOperator.Contains, sValue),
+                    new sap.ui.model.Filter("League", sap.ui.model.FilterOperator.Contains, sValue),
                 ],
                 and: false
             });
         
-            // Obtener la instancia de la tarjeta
-            var oCard = this.byId("_IDGenC3ard1");
+            // Obtener la instancia de la tabla
+            var oTable = this.byId("idTable");
         
-            // Aplicar el filtro a los elementos de la tarjeta
-            var oBinding = oCard.getBinding("items");
+            // Aplicar el filtro a las filas de la tabla
+            var oBinding = oTable.getBinding("items");
             oBinding.filter(oFilter, sap.ui.model.FilterType.Application);
         },
         
