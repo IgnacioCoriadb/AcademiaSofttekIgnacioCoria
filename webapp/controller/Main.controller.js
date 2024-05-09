@@ -102,49 +102,6 @@ sap.ui.define([
 
         /*************CRUD CLUBES***********************/
 
-        // validateInputCreateClub:function(){
-        
-        //     let name = this.getView().byId("name").getValue();
-        //     let city = this.getView().byId("city").getValue();
-        //     let country = this.getView().byId("country").getValue();
-        //     let league = this.getView().byId("league").getValue();
-        //     var oDatePicker = this.getView().byId("foundationDate").getDateValue();
-           
-        //     //convertir la fecha a el formato de la base de datos
-        //     var dateObj = new Date(oDatePicker);
-        //     var year = dateObj.getFullYear();
-        //     var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
-        //     var day = ("0" + dateObj.getDate()).slice(-2);
-        //     var formattedDate = year + "-" + month + "-" + day + "T00:00:00";            
-
-        //     // Validar que los campos no estén vacíos
-        //     if (!name || !city || !country || !league || !oDatePicker) {
-        //         sap.m.MessageToast.show("Por favor, complete todos los campos.");
-             
-        //         return; // Detener la función si algún campo está vacío
-        //     }else{
-        //         // Convertir la fecha a el formato de la base de datos
-        //         var dateObj = new Date(oDatePicker);
-        //         var year = dateObj.getFullYear();
-        //         var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
-        //         var day = ("0" + dateObj.getDate()).slice(-2);
-        //         var formattedDate = year + "-" + month + "-" + day + "T00:00:00";
-    
-        //         var data = {
-        //             Name: name,
-        //             City: city,
-        //             Country: country,
-        //             League: league,
-        //             FoundationDate: formattedDate
-        //         };
-        //         var oButton = this.getView().byId("buttonCreate");
-        //         oButton.setEnabled(true);
-    
-        //         return data;
-        //     }
-        // },
-
-
         createClub:function(oEvent){
         
             let oModel = oEvent.getSource().getModel("FormDataClub");
@@ -220,49 +177,7 @@ sap.ui.define([
       
 
 
-        validateInputCreatePlayer:function(){
-        
-            // debugger
-            // let lastnamePlayer = this.getView().byId("lastnamePlayer").getValue();
-            // let nationalityPlayer = this.getView().byId("nationalityPlayer").getValue();
-            // let idClub = this.getView().byId("idClub").getValue();
-            // var birthDate = this.getView().byId("birthDate").getDateValue();
-           
-            // //convertir la fecha a el formato de la base de datos
-            // var dateObj = new Date(birthDate);
-            // var year = dateObj.getFullYear();
-            // var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
-            // var day = ("0" + dateObj.getDate()).slice(-2);
-            // var formattedDate = year + "-" + month + "-" + day + "T00:00:00";            
-
-            // // Validar que los campos no estén vacíos
-            // if (!namePlayer || !lastnamePlayer || !nationalityPlayer || !idClub || !birthDate) {
-            //     sap.m.MessageToast.show("Por favor, complete todos los campos.");
-             
-            //     return; // Detener la función si algún campo está vacío
-            // }else{
-            //     // Convertir la fecha a el formato de la base de datos
-            //     var dateObj = new Date(oDatePicker);
-            //     var year = dateObj.getFullYear();
-            //     var month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Sumar 1 al mes porque los meses comienzan desde 0
-            //     var day = ("0" + dateObj.getDate()).slice(-2);
-            //     var formattedDate = year + "-" + month + "-" + day + "T00:00:00";
-    
-            //     var data = {
-            //         Name: namePlayer,
-            //         LastName: lastnamePlayer,
-            //         BirthDate: formattedDate,
-            //         Nationality: nationalityPlayer,
-            //     };
-            //     var oButton = this.getView().byId("buttonCreate");
-            //     oButton.setEnabled(true);
-    
-            //     return data;
-            // }
-
-
-          
-        },
+ 
 
 
        dataNewClub: function(){
@@ -445,17 +360,16 @@ sap.ui.define([
             var oFilter = new sap.ui.model.Filter({
                 filters: [
                     new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, sValue),
-                    new sap.ui.model.Filter("City", sap.ui.model.FilterOperator.Contains, sValue),
-                    new sap.ui.model.Filter("League", sap.ui.model.FilterOperator.Contains, sValue),
+            
                 ],
                 and: false
             });
         
-            // Obtener la instancia de la tabla
-            var oTable = this.byId("idTable");
+            // Obtener la instancia de la tarjeta
+            var oCard = this.byId("_IDGenC3ard1");
         
-            // Aplicar el filtro a las filas de la tabla
-            var oBinding = oTable.getBinding("items");
+            // Aplicar el filtro a los elementos de la tarjeta
+            var oBinding = oCard.getBinding("items");
             oBinding.filter(oFilter, sap.ui.model.FilterType.Application);
         },
         

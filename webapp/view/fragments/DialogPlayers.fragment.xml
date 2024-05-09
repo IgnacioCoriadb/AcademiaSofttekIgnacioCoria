@@ -40,7 +40,7 @@
             </f:SimpleForm>	
 
         <beginButton>
-            <Button id="_IDGenButetosn1"  type="Emphasized" text="Crear" press="updatePlayer" />
+            <Button id="_IDGenButetosdn1"  type="Emphasized" text="Actualizar" press="updatePlayer" />
         </beginButton>
         <endButton>
             <Button id="_IDGenBsuteton2" type="Default" text="Cancelar" press="closeDialogPlayer" />

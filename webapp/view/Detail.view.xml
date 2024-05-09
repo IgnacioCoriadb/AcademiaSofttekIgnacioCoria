@@ -26,10 +26,7 @@
         id="_IDGenList1"   
         justifyContent="Center"
         width="100%" wrap="Wrap"
-        items="{
-            path:'ToPlayerSet',
-                parameters: {expand: 'ToClub'}
-            }"
+       items="{PlayerModel>/}"
     >
      <Card id="_IDGenC3ard1" width="250px" height="420px"  class="sapUiSmallMargin" >
         <header>
@@ -42,22 +39,22 @@
         <List id="_ID34GenList1" separators="None" >
             <StandardListItem id="_IDGenStan345dardListItem1"
                 text="Nombre" 
-                description="{Name}"
+                description="{PlayerModel>Name}"
             />
             <StandardListItem id="_IDGenStandar34dListItem2"
                 text="Apellido" 
-                description="{LastName}"
+                description="{PlayerModel>LastName}"
             />
             <StandardListItem id="_IDGenStandar34dListItem22"
                 text="Fecha de Nacimiento" 
                 description="{
-                    path: 'BirthDate',
+                    path: 'PlayerModel>BirthDate',
                     formatter: '.getFoundationDate'
                 }"
             />
             <StandardListItem id="_IDGenStan43darddListItem2"
                 text="Nacionalidad" 
-                description="{Nationality}"
+                description="{PlayerModel>Nationality}"
             />
         </List>
         
