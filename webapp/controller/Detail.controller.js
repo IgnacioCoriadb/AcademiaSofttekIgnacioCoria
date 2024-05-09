@@ -202,37 +202,25 @@ sap.ui.define([
  
 
             deletePlayer:function(oEvent){
-
-                let sPath = oEvent.getSource().getBindingContext().getPath();
-                console.log(sPath);
-                debugger
-
-
-                // var oContext = oEvent.getSource().getBindingContext("PlayerModel");
-                // var idPlayer = oContext.getObject().IdPlayer;
-                // var idClub = oContext.getObject().IdClub;
-
-                // let url = `/PlayerSet(IdPlayer='${idPlayer}',IdClub='${idClub}')`;
-
-                // // let idPlayer = oEvent.getSource().getBindingContext().getPath();
-                // // var oSpecificModel = this.getOwnerComponent().getModel("academiaJSONModel");
-
-                // // console.log(oSpecificModel);
-                // // debugger
-                // let oDataModel = this.getOwnerComponent().getModel();
-
-                
-                // oDataModel.remove(url,{
-                //     success : function(oResponse){
-                //         sap.m.MessageBox.success("Jugador eliminado correctamente");
-                //         //refrescar el modelo para que se actualice la tabla despues de eliminar
-                     
-                //         that.getOwnerComponent().getModel().refresh(true,true);
-                //     },
-                //     error: function(oError){
-                //         sap.m.MessageBox.error("No se pudo eliminar el jugador");
-                //     }
-                // })
+                var oContext = oEvent.getSource().getBindingContext("PlayerModel");
+                //obtengo el player seleccionado
+                var oPlayer = oContext.getObject();
+                var idPlayer = oPlayer.IdPlayer;
+                var idClub = oPlayer.IdClub;
+       
+                let url = `/PlayerSet(IdPlayer='${idPlayer}',IdClub='${idClub}')`;
+                var oDataModel = that.getView().getModel();
+                oDataModel.remove(url,{
+                    success : function(oResponse){
+                        sap.m.MessageBox.success("Jugador eliminado correctamente");
+                        //refrescar el modelo para que se actualice la tabla despues de eliminar
+                        that.newData(idClub);
+                        that.getOwnerComponent().getModel().refresh(true,true);
+                    },
+                    error: function(oError){
+                        sap.m.MessageBox.error("No se pudo eliminar el jugador");
+                    }
+                })
             },
 
        

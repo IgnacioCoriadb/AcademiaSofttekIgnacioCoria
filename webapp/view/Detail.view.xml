@@ -21,7 +21,7 @@
         />
     </m:FlexBox>
     <m:FlexBox id="_IDGenVBox1" class="sapUiSmallMargin" justifyContent="End">		
-        <m:SearchField id="_IDGenSearchField2" width="auto" placeholder="Escribe aquí para buscar..." liveChange="onSearchChangeFilterPlayers" />
+        <m:SearchField id="_IDGenSearchField2" width="400px" placeholder="Escribe aquí para buscar..." liveChange="onSearchChangeFilterPlayers" />
     </m:FlexBox >
 
     <m:HBox
